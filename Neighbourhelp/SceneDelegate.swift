@@ -24,7 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .environmentObject(ContentViewController())
             .environmentObject(LoginViewController())
             .environmentObject(RegistryViewController())
+            .environmentObject(CreateEntryViewController())
             .environmentObject(UserDatabase())
+            .environmentObject(EntryDatabase())
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

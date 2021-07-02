@@ -9,4 +9,19 @@
     </objects>
 </document>
 
-Run pod install
+To get all the needed dependencies (Guide: https://firebase.google.com/docs/ios/setup)
+1.  Add the GoogleService.Info.plist as firebase-configuration-file to your projects root directory
+        - either get a external configuration file
+        - or create a new own firebase project
+2.  Open a console and change to your projects directory
+3.  Run pod init
+4.  Add the following lines to the top of your pod file:
+        add pods for desired Firebase products
+        #https://firebase.google.com/docs/ios/setup#available-pods
+5.  add the following pods to your pod file:
+        - pod 'Firebase'
+        - pod 'Firebase/Auth'
+        - pod 'Firebase/Database'
+6.  Run pod install
+
+Note: only use the created .xcworkspace file from now on

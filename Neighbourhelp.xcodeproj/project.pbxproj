@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,12 +11,20 @@
 		8E1C9351795B5A68807BC5B4 /* Pods_NeighbourhelpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8576C8C890E52CD5278B18DA /* Pods_NeighbourhelpTests.framework */; };
 		CA903DF7268F1CEE00A85A73 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903DF6268F1CEE00A85A73 /* UserModel.swift */; };
 		CA903E00268F1EB900A85A73 /* UserDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903DFF268F1EB900A85A73 /* UserDatabase.swift */; };
-		CA903E06268F240800A85A73 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E05268F240800A85A73 /* TabView.swift */; };
 		CA903E0B268F251700A85A73 /* RegistryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E0A268F251700A85A73 /* RegistryView.swift */; };
 		CA903E32268F30B200A85A73 /* RegistryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E31268F30B200A85A73 /* RegistryViewController.swift */; };
-		CA903E37268F77F900A85A73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA903E36268F77F800A85A73 /* GoogleService-Info.plist */; };
-		CA903E38268F77F900A85A73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA903E36268F77F800A85A73 /* GoogleService-Info.plist */; };
-		CA903E39268F77F900A85A73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA903E36268F77F800A85A73 /* GoogleService-Info.plist */; };
+		CA903E6F268F8C1700A85A73 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E6E268F8C1700A85A73 /* HomePageView.swift */; };
+		CA903E74268F8DD800A85A73 /* EntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E73268F8DD800A85A73 /* EntryListView.swift */; };
+		CA903E79268F8E8000A85A73 /* CreateEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E78268F8E8000A85A73 /* CreateEntryView.swift */; };
+		CA903E7E268F8E8A00A85A73 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E7D268F8E8A00A85A73 /* ChatView.swift */; };
+		CA903E83268F8FD700A85A73 /* CreateEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E82268F8FD700A85A73 /* CreateEntryViewController.swift */; };
+		CA903E88268F94F300A85A73 /* EntryDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E87268F94F300A85A73 /* EntryDatabase.swift */; };
+		CA903E89268F94F300A85A73 /* EntryDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E87268F94F300A85A73 /* EntryDatabase.swift */; };
+		CA903E8A268F94F300A85A73 /* EntryDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E87268F94F300A85A73 /* EntryDatabase.swift */; };
+		CA903EA3268F98E300A85A73 /* EntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903EA2268F98E300A85A73 /* EntryModel.swift */; };
+		CA903EB1268FA65C00A85A73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA903EB0268FA65C00A85A73 /* GoogleService-Info.plist */; };
+		CA903EB2268FA65C00A85A73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA903EB0268FA65C00A85A73 /* GoogleService-Info.plist */; };
+		CA903EB3268FA65C00A85A73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA903EB0268FA65C00A85A73 /* GoogleService-Info.plist */; };
 		CAE9EE02268E50B600D3447E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9EE01268E50B600D3447E /* AppDelegate.swift */; };
 		CAE9EE04268E50B600D3447E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9EE03268E50B600D3447E /* SceneDelegate.swift */; };
 		CAE9EE06268E50B600D3447E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9EE05268E50B600D3447E /* ContentView.swift */; };
@@ -59,10 +67,16 @@
 		C3B876204176B6B69A2CDE3E /* Pods-NeighbourhelpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeighbourhelpTests.release.xcconfig"; path = "Target Support Files/Pods-NeighbourhelpTests/Pods-NeighbourhelpTests.release.xcconfig"; sourceTree = "<group>"; };
 		CA903DF6268F1CEE00A85A73 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CA903DFF268F1EB900A85A73 /* UserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatabase.swift; sourceTree = "<group>"; };
-		CA903E05268F240800A85A73 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		CA903E0A268F251700A85A73 /* RegistryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistryView.swift; sourceTree = "<group>"; };
 		CA903E31268F30B200A85A73 /* RegistryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistryViewController.swift; sourceTree = "<group>"; };
-		CA903E36268F77F800A85A73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CA903E6E268F8C1700A85A73 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		CA903E73268F8DD800A85A73 /* EntryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListView.swift; sourceTree = "<group>"; };
+		CA903E78268F8E8000A85A73 /* CreateEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEntryView.swift; sourceTree = "<group>"; };
+		CA903E7D268F8E8A00A85A73 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		CA903E82268F8FD700A85A73 /* CreateEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEntryViewController.swift; sourceTree = "<group>"; };
+		CA903E87268F94F300A85A73 /* EntryDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDatabase.swift; sourceTree = "<group>"; };
+		CA903EA2268F98E300A85A73 /* EntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryModel.swift; sourceTree = "<group>"; };
+		CA903EB0268FA65C00A85A73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CAE9EDFE268E50B600D3447E /* Neighbourhelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neighbourhelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE9EE01268E50B600D3447E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAE9EE03268E50B600D3447E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				CA903DF6268F1CEE00A85A73 /* UserModel.swift */,
+				CA903EA2268F98E300A85A73 /* EntryModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -137,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				CA903DFF268F1EB900A85A73 /* UserDatabase.swift */,
+				CA903E87268F94F300A85A73 /* EntryDatabase.swift */,
 			);
 			path = EnvironmentObjects;
 			sourceTree = "<group>";
@@ -147,8 +163,11 @@
 				CAE9EE4E268E590800D3447E /* SelectionView.swift */,
 				CAE9EE5B268E5D8000D3447E /* OpenRequestsView.swift */,
 				CAE9EE49268E587500D3447E /* LoginView.swift */,
-				CA903E05268F240800A85A73 /* TabView.swift */,
 				CA903E0A268F251700A85A73 /* RegistryView.swift */,
+				CA903E6E268F8C1700A85A73 /* HomePageView.swift */,
+				CA903E73268F8DD800A85A73 /* EntryListView.swift */,
+				CA903E78268F8E8000A85A73 /* CreateEntryView.swift */,
+				CA903E7D268F8E8A00A85A73 /* ChatView.swift */,
 			);
 			path = PageViews;
 			sourceTree = "<group>";
@@ -183,7 +202,7 @@
 				CAE9EE05268E50B600D3447E /* ContentView.swift */,
 				CAE9EE07268E50B900D3447E /* Assets.xcassets */,
 				CAE9EE0C268E50B900D3447E /* LaunchScreen.storyboard */,
-				CA903E36268F77F800A85A73 /* GoogleService-Info.plist */,
+				CA903EB0268FA65C00A85A73 /* GoogleService-Info.plist */,
 				CAE9EE0F268E50B900D3447E /* Info.plist */,
 				CA903DFE268F1E9800A85A73 /* EnvironmentObjects */,
 				CA903DF5268F1CDF00A85A73 /* Models */,
@@ -226,6 +245,7 @@
 				CAE9EE44268E579C00D3447E /* ContentViewController.swift */,
 				CAE9EE53268E5BA600D3447E /* LoginViewController.swift */,
 				CA903E31268F30B200A85A73 /* RegistryViewController.swift */,
+				CA903E82268F8FD700A85A73 /* CreateEntryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -240,7 +260,6 @@
 				E8ACA86CD240B9B0B2509251 /* Pods-NeighbourhelpTests.debug.xcconfig */,
 				C3B876204176B6B69A2CDE3E /* Pods-NeighbourhelpTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -353,7 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE9EE0E268E50B900D3447E /* LaunchScreen.storyboard in Resources */,
-				CA903E37268F77F900A85A73 /* GoogleService-Info.plist in Resources */,
+				CA903EB1268FA65C00A85A73 /* GoogleService-Info.plist in Resources */,
 				CAE9EE0B268E50B900D3447E /* Preview Assets.xcassets in Resources */,
 				CAE9EE08268E50B900D3447E /* Assets.xcassets in Resources */,
 			);
@@ -363,7 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA903E38268F77F900A85A73 /* GoogleService-Info.plist in Resources */,
+				CA903EB2268FA65C00A85A73 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +390,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA903E39268F77F900A85A73 /* GoogleService-Info.plist in Resources */,
+				CA903EB3268FA65C00A85A73 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,17 +504,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA903E06268F240800A85A73 /* TabView.swift in Sources */,
 				CA903E32268F30B200A85A73 /* RegistryViewController.swift in Sources */,
+				CA903E6F268F8C1700A85A73 /* HomePageView.swift in Sources */,
 				CAE9EE54268E5BA600D3447E /* LoginViewController.swift in Sources */,
 				CAE9EE45268E579C00D3447E /* ContentViewController.swift in Sources */,
+				CA903E83268F8FD700A85A73 /* CreateEntryViewController.swift in Sources */,
+				CA903E7E268F8E8A00A85A73 /* ChatView.swift in Sources */,
 				CAE9EE5C268E5D8000D3447E /* OpenRequestsView.swift in Sources */,
 				CAE9EE02268E50B600D3447E /* AppDelegate.swift in Sources */,
 				CAE9EE04268E50B600D3447E /* SceneDelegate.swift in Sources */,
+				CA903E74268F8DD800A85A73 /* EntryListView.swift in Sources */,
 				CAE9EE4A268E587500D3447E /* LoginView.swift in Sources */,
 				CAE9EE06268E50B600D3447E /* ContentView.swift in Sources */,
 				CA903DF7268F1CEE00A85A73 /* UserModel.swift in Sources */,
+				CA903EA3268F98E300A85A73 /* EntryModel.swift in Sources */,
+				CA903E79268F8E8000A85A73 /* CreateEntryView.swift in Sources */,
 				CA903E0B268F251700A85A73 /* RegistryView.swift in Sources */,
+				CA903E88268F94F300A85A73 /* EntryDatabase.swift in Sources */,
 				CAE9EE4F268E590800D3447E /* SelectionView.swift in Sources */,
 				CA903E00268F1EB900A85A73 /* UserDatabase.swift in Sources */,
 			);
@@ -506,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE9EE19268E50B900D3447E /* NeighbourhelpTests.swift in Sources */,
+				CA903E89268F94F300A85A73 /* EntryDatabase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAE9EE24268E50B900D3447E /* NeighbourhelpUITests.swift in Sources */,
+				CA903E8A268F94F300A85A73 /* EntryDatabase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

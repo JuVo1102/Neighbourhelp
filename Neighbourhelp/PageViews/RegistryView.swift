@@ -36,7 +36,7 @@ struct RegistryView: View {
                     .font(.callout)
                     .bold()
                 
-                TextField("Enter password...", text: $registryViewController.password)
+                SecureField("Enter password...", text: $registryViewController.password)
                     .multilineTextAlignment(
                         .center)
                     .font(.headline)
@@ -51,7 +51,7 @@ struct RegistryView: View {
                     .font(.callout)
                     .bold()
                 
-                TextField("Enter password...", text: $registryViewController.confirmPassword)
+                SecureField("Confirm password...", text: $registryViewController.confirmPassword)
                     .multilineTextAlignment(
                         .center)
                     .font(.headline)
@@ -78,7 +78,7 @@ struct RegistryView: View {
                 .frame(width: 300, height: 50)
                 .background(Color(hue: 1.0, saturation: 0.028, brightness: 0.864))
                 .cornerRadius(15.0)
-                .fullScreenCover(isPresented: $contentViewController.tabView, content: TabView.init)                
+                .fullScreenCover(isPresented: $contentViewController.homePageView, content: HomePageView.init)                
                 
             }
             .navigationBarTitle("Registry")

@@ -11,6 +11,8 @@ struct ContentView: View {
     @EnvironmentObject var viewController: ContentViewController
     @EnvironmentObject var loginController: LoginViewController
     @EnvironmentObject var registryController: RegistryViewController
+    @EnvironmentObject var createEntryController: CreateEntryViewController
+    @EnvironmentObject var entryData: EntryDatabase
     @EnvironmentObject var userData: UserDatabase
     
     var body: some View {
@@ -20,6 +22,7 @@ struct ContentView: View {
             .environmentObject(viewController)
             .environmentObject(loginController)
             .environmentObject(registryController)
+            .environmentObject(createEntryController)
             .environmentObject(userData)
     }
 }
@@ -29,7 +32,9 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .environmentObject(ContentViewController())
             .environmentObject(LoginViewController())
-            .environmentObject(UserDatabase())
             .environmentObject(RegistryViewController())
+            .environmentObject(CreateEntryViewController())
+            .environmentObject(UserDatabase())
+            .environmentObject(EntryDatabase())
     }
 }

@@ -38,7 +38,7 @@ struct LoginView: View {
                     .font(.callout)
                     .bold()
                 
-                TextField("Enter password...", text: $loginViewController.password)
+                SecureField("Enter password...", text: $loginViewController.password)
                     .multilineTextAlignment(
                         .center)
                     .autocapitalization(.none)
@@ -65,7 +65,7 @@ struct LoginView: View {
                 .frame(width: 300, height: 50)
                 .background(Color(hue: 1.0, saturation: 0.028, brightness: 0.864))
                 .cornerRadius(15.0)
-                .fullScreenCover(isPresented: $contentViewController.tabView, content: TabView.init)
+                .fullScreenCover(isPresented: $contentViewController.homePageView, content: HomePageView.init)
                 
                 Button("Register!") {
                     loginViewController.navigateToRegistry(contentViewController: contentViewController)

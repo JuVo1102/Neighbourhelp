@@ -28,7 +28,7 @@ class LoginViewController: ObservableObject {
             }
             else {
                 userdataBase.loginUser(email: email, password: password)
-                contentViewController.tabView = true
+                contentViewController.homePageView = true
             }
         }
         else {

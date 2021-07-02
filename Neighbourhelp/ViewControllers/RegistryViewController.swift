@@ -24,7 +24,7 @@ class RegistryViewController: ObservableObject {
                     let regex = try! NSRegularExpression(pattern: emailRegEx)
                     if regex.firstMatch(in: email, options: [], range: range) != nil {
                         userdataBase.AddUser(email: email, password: password)
-                        contentViewController.tabView = true
+                        contentViewController.homePageView = true
                     }
                     else {
                         warning = "email must be a valid email"
