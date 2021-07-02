@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // Quelle: https://www.hackingwithswift.com/articles/216/complete-guide-to-navigationview-in-swiftui vom 02.07.2021
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.backgroundColor = .systemPurple
+        
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+        
+        FirebaseApp.configure()
+        
         return true
     }
 
