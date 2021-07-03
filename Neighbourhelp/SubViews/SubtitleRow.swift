@@ -14,7 +14,7 @@ struct SubtitleRow<T: StringProtocol>: View {
         VStack (alignment: .leading){
             Text(text)
                 .font(.subheadline)
-            Text("von :\(detailText as! String)")
+            Text("from user: \(detailText as! String)")
                 .font(.caption)
         }
     }

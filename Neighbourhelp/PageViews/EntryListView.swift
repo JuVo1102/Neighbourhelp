@@ -8,18 +8,26 @@
 import SwiftUI
 
 struct EntryListView: View {
+    @EnvironmentObject var contentViewController: ContentViewController
+    @EnvironmentObject var entryListViewController: EntryListViewController
     @EnvironmentObject var entryDataBase: EntryDatabase
     @EnvironmentObject var userDataBase: UserDatabase
     
     var body: some View {
         NavigationView {
-            List(entryDataBase.entriesForUser) { entry in
-                SubtitleRow(text: entry.entryTitle, detailText: entry.createdByUser)
+            List {
+                ForEach(entryListViewController.sections) {
+                    section in Section(header: Text(section.header)) {
+                        ForEach(section.entries) {
+                            SubtitleRow(text: $0.entryTitle, detailText: $0.createdByUser)
+                        }
+                    }
+                }
             }
-        }
-        .onAppear {
-            print("EntryViewDidLoad")
-            entryDataBase.getData(user: userDataBase.currentUser)
+            .onAppear {
+                entryDataBase.getData(user: userDataBase.currentUser)
+                entryListViewController.queryEntries(entryDatabase: entryDataBase, userDataBase: userDataBase)
+            }
         }
     }    
 }
@@ -27,6 +35,8 @@ struct EntryListView: View {
 struct EntryListView_Previews: PreviewProvider {
     static var previews: some View {
         EntryListView()
+            .environmentObject(ContentViewController())
+            .environmentObject(EntryListViewController())
             .environmentObject(EntryDatabase())
             .environmentObject(UserDatabase())
         

@@ -10,6 +10,8 @@
 		66E36BF1D834C085D47D4B23 /* Pods_Neighbourhelp_NeighbourhelpUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976C28F46F9C8A0AFF3B11C7 /* Pods_Neighbourhelp_NeighbourhelpUITests.framework */; };
 		8E1C9351795B5A68807BC5B4 /* Pods_NeighbourhelpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8576C8C890E52CD5278B18DA /* Pods_NeighbourhelpTests.framework */; };
 		CA49103D269077280097D5CD /* SubtitleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA49103C269077280097D5CD /* SubtitleRow.swift */; };
+		CA4910472690B83C0097D5CD /* EntryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4910462690B83C0097D5CD /* EntryListViewController.swift */; };
+		CA49104F2690BDF10097D5CD /* SectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA49104E2690BDF10097D5CD /* SectionViewModel.swift */; };
 		CA903DF7268F1CEE00A85A73 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903DF6268F1CEE00A85A73 /* UserModel.swift */; };
 		CA903E00268F1EB900A85A73 /* UserDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903DFF268F1EB900A85A73 /* UserDatabase.swift */; };
 		CA903E0B268F251700A85A73 /* RegistryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E0A268F251700A85A73 /* RegistryView.swift */; };
@@ -67,6 +69,8 @@
 		976C28F46F9C8A0AFF3B11C7 /* Pods_Neighbourhelp_NeighbourhelpUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Neighbourhelp_NeighbourhelpUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B876204176B6B69A2CDE3E /* Pods-NeighbourhelpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeighbourhelpTests.release.xcconfig"; path = "Target Support Files/Pods-NeighbourhelpTests/Pods-NeighbourhelpTests.release.xcconfig"; sourceTree = "<group>"; };
 		CA49103C269077280097D5CD /* SubtitleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleRow.swift; sourceTree = "<group>"; };
+		CA4910462690B83C0097D5CD /* EntryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListViewController.swift; sourceTree = "<group>"; };
+		CA49104E2690BDF10097D5CD /* SectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionViewModel.swift; sourceTree = "<group>"; };
 		CA903DF6268F1CEE00A85A73 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CA903DFF268F1EB900A85A73 /* UserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatabase.swift; sourceTree = "<group>"; };
 		CA903E0A268F251700A85A73 /* RegistryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistryView.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				CA49103C269077280097D5CD /* SubtitleRow.swift */,
+				CA49104E2690BDF10097D5CD /* SectionViewModel.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				CAE9EE53268E5BA600D3447E /* LoginViewController.swift */,
 				CA903E31268F30B200A85A73 /* RegistryViewController.swift */,
 				CA903E82268F8FD700A85A73 /* CreateEntryViewController.swift */,
+				CA4910462690B83C0097D5CD /* EntryListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -521,6 +527,7 @@
 				CAE9EE45268E579C00D3447E /* ContentViewController.swift in Sources */,
 				CA903E83268F8FD700A85A73 /* CreateEntryViewController.swift in Sources */,
 				CA903E7E268F8E8A00A85A73 /* ChatView.swift in Sources */,
+				CA49104F2690BDF10097D5CD /* SectionViewModel.swift in Sources */,
 				CAE9EE5C268E5D8000D3447E /* OpenRequestsView.swift in Sources */,
 				CAE9EE02268E50B600D3447E /* AppDelegate.swift in Sources */,
 				CAE9EE04268E50B600D3447E /* SceneDelegate.swift in Sources */,
@@ -533,6 +540,7 @@
 				CA903E0B268F251700A85A73 /* RegistryView.swift in Sources */,
 				CA49103D269077280097D5CD /* SubtitleRow.swift in Sources */,
 				CA903E88268F94F300A85A73 /* EntryDatabase.swift in Sources */,
+				CA4910472690B83C0097D5CD /* EntryListViewController.swift in Sources */,
 				CAE9EE4F268E590800D3447E /* SelectionView.swift in Sources */,
 				CA903E00268F1EB900A85A73 /* UserDatabase.swift in Sources */,
 			);
