@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CreateEntryView: View {
-    @EnvironmentObject var viewController: ContentViewController
+    @EnvironmentObject var contentViewController: ContentViewController
     @EnvironmentObject var createEntryController: CreateEntryViewController
     @EnvironmentObject var userDatabase: UserDatabase
     @EnvironmentObject var entryDatabase: EntryDatabase
@@ -52,7 +52,7 @@ struct CreateEntryView: View {
                 
                 Spacer()
                 
-                Button(action: {createEntryController.addEntryToDatabase(entryDatabase: entryDatabase, userDatabase: userDatabase)}){
+                Button(action: {createEntryController.addEntryToDatabase(entryDatabase: entryDatabase, userDatabase: userDatabase, contentViewController: contentViewController)}){
                     Text("Create Request")
                         .font(.headline)
                         .foregroundColor(.black)

@@ -10,11 +10,11 @@ import SwiftUI
 struct LoginView: View {
     @EnvironmentObject var contentViewController: ContentViewController
     @EnvironmentObject var loginViewController: LoginViewController
-    @EnvironmentObject var userData: UserDatabase
+    @EnvironmentObject var userDataBase: UserDatabase
+    @EnvironmentObject var entryDataBase: EntryDatabase
     //@Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        
         NavigationView {
             VStack (spacing: 30) {
                 Spacer()
@@ -57,7 +57,7 @@ struct LoginView: View {
                     .foregroundColor(.red)
                 
                 Button("Login!") {
-                    loginViewController.login(userdataBase: userData, contentViewController: contentViewController)
+                    loginViewController.login(userDataBase: userDataBase, entryDataBase: entryDataBase, contentViewController: contentViewController)
                 }
                 .font(.headline)
                 .foregroundColor(.black)
@@ -91,5 +91,6 @@ struct LoginView_Previews: PreviewProvider {
             .environmentObject(ContentViewController())
             .environmentObject(LoginViewController())
             .environmentObject(UserDatabase())
+            .environmentObject(EntryDatabase())
     }
 }

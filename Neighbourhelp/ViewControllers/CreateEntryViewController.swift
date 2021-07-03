@@ -12,11 +12,13 @@ class CreateEntryViewController: ObservableObject {
     @Published var description: String = ""
     @Published var warning = ""
     
-    func addEntryToDatabase(entryDatabase: EntryDatabase, userDatabase: UserDatabase) {
+    func addEntryToDatabase(entryDatabase: EntryDatabase, userDatabase: UserDatabase, contentViewController: ContentViewController) {
         if title != "" && description != "" {
             let entry = Entry(entryTitle: title, entryDescription: description, createdByUser: userDatabase.currentUser.email, acceptedByUser: "")
-            entryDatabase.addEntry(entry: entry)
-            warning = "\(entry.entryTitle)\n\(entry.entryDescription)\n\(entry.acceptedByUser)\n\(entry.createdByUser)"
+            entryDatabase.addOrChangeEntry(entry: entry)
+            title = ""
+            description = ""
+            contentViewController.tabSelection = 0
         }
         else {
             warning = "Title and description must have a value"

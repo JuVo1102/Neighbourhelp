@@ -11,22 +11,39 @@ import FirebaseDatabase
 // Quelle: https://firebase.google.com/docs/database/ios/read-and-write am 02.07.2021
 class EntryDatabase: ObservableObject {
     @Published var database: DatabaseReference! = Database.database().reference()
+    @Published var entriesForUser: [Entry] = []
     
-    func addEntry(entry: Entry){
-        self.database.child("Entries").child(entry.id.uuidString).setValue([
-            "title": entry.entryTitle,
-            "description": entry.entryDescription,
+    func addOrChangeEntry(entry: Entry){
+        let object: [String: String] = [
+            "entryTitle": entry.entryTitle,
+            "entryDescription": entry.entryDescription,
             "createdByUser": entry.createdByUser,
             "acceptedByUser": entry.acceptedByUser
-        ])
+        ]
+        self.database.child("Entries").child(entry.id.uuidString).setValue(object)
     }
+       
     
-    func overRideEntry(entry: Entry) {
-        self.database.child("Entries/\(entry.id.uuidString)").setValue([
-            "title": entry.entryTitle,
-            "description": entry.entryDescription,
-            "createdByUser": entry.createdByUser,
-            "acceptedByUser": entry.acceptedByUser
-        ])
+    func getData(user: User) {
+        // Quelle: https://www.youtube.com/watch?v=tpsffoRh9u0
+        print("getData was called")
+        self.database.child("Entries").observeSingleEvent(of: .value, with: {snapshot in
+            guard let value =  snapshot.value as? [String: NSObject]
+            else {
+                print("returned")
+                return
+            }
+            for entry in value {
+                let tmpEntry = Entry(
+                    id: UUID(uuidString: entry.key) ?? UUID(),
+                    entryTitle: entry.value.value(forKey: "entryTitle") as? String ?? "",
+                    entryDescription: entry.value.value(forKey: "entryDescription") as? String ?? "",
+                    createdByUser: entry.value.value(forKey: "createdByUser") as? String ?? "",
+                    acceptedByUser: entry.value.value(forKey: "acceptedByUser") as? String ?? "")
+                
+                print("entry: \(tmpEntry)")
+            }
+            
+        })
     }
 }

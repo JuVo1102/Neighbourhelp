@@ -12,8 +12,8 @@ struct ContentView: View {
     @EnvironmentObject var loginController: LoginViewController
     @EnvironmentObject var registryController: RegistryViewController
     @EnvironmentObject var createEntryController: CreateEntryViewController
-    @EnvironmentObject var entryData: EntryDatabase
-    @EnvironmentObject var userData: UserDatabase
+    @EnvironmentObject var entryDataBase: EntryDatabase
+    @EnvironmentObject var userDataBase: UserDatabase
     
     var body: some View {
         // Quelle für Navigation: https://www.hackingwithswift.com/quick-start/swiftui/how-to-present-a-full-screen-modal-view-using-fullscreencover vom 02.07.2021
@@ -23,7 +23,8 @@ struct ContentView: View {
             .environmentObject(loginController)
             .environmentObject(registryController)
             .environmentObject(createEntryController)
-            .environmentObject(userData)
+            .environmentObject(userDataBase)
+            .environmentObject(entryDataBase)
     }
 }
 

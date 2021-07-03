@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		66E36BF1D834C085D47D4B23 /* Pods_Neighbourhelp_NeighbourhelpUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976C28F46F9C8A0AFF3B11C7 /* Pods_Neighbourhelp_NeighbourhelpUITests.framework */; };
 		8E1C9351795B5A68807BC5B4 /* Pods_NeighbourhelpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8576C8C890E52CD5278B18DA /* Pods_NeighbourhelpTests.framework */; };
+		CA49103D269077280097D5CD /* SubtitleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA49103C269077280097D5CD /* SubtitleRow.swift */; };
 		CA903DF7268F1CEE00A85A73 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903DF6268F1CEE00A85A73 /* UserModel.swift */; };
 		CA903E00268F1EB900A85A73 /* UserDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903DFF268F1EB900A85A73 /* UserDatabase.swift */; };
 		CA903E0B268F251700A85A73 /* RegistryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E0A268F251700A85A73 /* RegistryView.swift */; };
@@ -65,6 +66,7 @@
 		8576C8C890E52CD5278B18DA /* Pods_NeighbourhelpTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeighbourhelpTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		976C28F46F9C8A0AFF3B11C7 /* Pods_Neighbourhelp_NeighbourhelpUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Neighbourhelp_NeighbourhelpUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B876204176B6B69A2CDE3E /* Pods-NeighbourhelpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeighbourhelpTests.release.xcconfig"; path = "Target Support Files/Pods-NeighbourhelpTests/Pods-NeighbourhelpTests.release.xcconfig"; sourceTree = "<group>"; };
+		CA49103C269077280097D5CD /* SubtitleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleRow.swift; sourceTree = "<group>"; };
 		CA903DF6268F1CEE00A85A73 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CA903DFF268F1EB900A85A73 /* UserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatabase.swift; sourceTree = "<group>"; };
 		CA903E0A268F251700A85A73 /* RegistryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistryView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CA49103B269076F30097D5CD /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				CA49103C269077280097D5CD /* SubtitleRow.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		CA903DF5268F1CDF00A85A73 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +214,7 @@
 				CAE9EE0C268E50B900D3447E /* LaunchScreen.storyboard */,
 				CA903EB0268FA65C00A85A73 /* GoogleService-Info.plist */,
 				CAE9EE0F268E50B900D3447E /* Info.plist */,
+				CA49103B269076F30097D5CD /* SubViews */,
 				CA903DFE268F1E9800A85A73 /* EnvironmentObjects */,
 				CA903DF5268F1CDF00A85A73 /* Models */,
 				CAE9EE3D268E543000D3447E /* ViewControllers */,
@@ -520,6 +531,7 @@
 				CA903EA3268F98E300A85A73 /* EntryModel.swift in Sources */,
 				CA903E79268F8E8000A85A73 /* CreateEntryView.swift in Sources */,
 				CA903E0B268F251700A85A73 /* RegistryView.swift in Sources */,
+				CA49103D269077280097D5CD /* SubtitleRow.swift in Sources */,
 				CA903E88268F94F300A85A73 /* EntryDatabase.swift in Sources */,
 				CAE9EE4F268E590800D3447E /* SelectionView.swift in Sources */,
 				CA903E00268F1EB900A85A73 /* UserDatabase.swift in Sources */,

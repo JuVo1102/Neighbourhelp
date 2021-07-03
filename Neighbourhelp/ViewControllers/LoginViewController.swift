@@ -16,7 +16,7 @@ class LoginViewController: ObservableObject {
     @Published var passwordIsEditing: Bool = false
     
     
-    func login(userdataBase: UserDatabase, contentViewController: ContentViewController) {
+    func login(userDataBase: UserDatabase, entryDataBase: EntryDatabase, contentViewController: ContentViewController) {
         if password != "" && email != "" {
             // Quelle: https://www.hackingwithswift.com/articles/108/how-to-use-regular-expression-in-swift
             let range = NSRange(location: 0, length: email.utf16.count)
@@ -27,7 +27,8 @@ class LoginViewController: ObservableObject {
                 warning = "email must be a valid email"
             }
             else {
-                userdataBase.loginUser(email: email, password: password)
+                userDataBase.loginUser(email: email, password: password)
+                entryDataBase.getData(user: userDataBase.currentUser)
                 contentViewController.homePageView = true
             }
         }
