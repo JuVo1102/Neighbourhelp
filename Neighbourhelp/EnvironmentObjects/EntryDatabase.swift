@@ -39,9 +39,17 @@ class EntryDatabase: ObservableObject {
                     entryTitle: entry.value.value(forKey: "entryTitle") as? String ?? "",
                     entryDescription: entry.value.value(forKey: "entryDescription") as? String ?? "",
                     createdByUser: entry.value.value(forKey: "createdByUser") as? String ?? "",
-                    acceptedByUser: entry.value.value(forKey: "acceptedByUser") as? String ?? "")
+                    acceptedByUser: entry.value.value(forKey: "acceptedByUser") as? String ?? ""
+                )
                 
-                print("entry: \(tmpEntry)")
+                let checkElement = self.entriesForUser.first { $0.id == tmpEntry.id }
+                if checkElement != nil {
+                    let index = self.entriesForUser.firstIndex { $0.id == tmpEntry.id }
+                    self.entriesForUser[index!] = tmpEntry
+                }
+                else {
+                    self.entriesForUser.append(tmpEntry)
+                }
             }
             
         })
