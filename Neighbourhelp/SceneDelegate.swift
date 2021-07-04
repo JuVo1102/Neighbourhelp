@@ -26,6 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             .environmentObject(RegistryViewController())
             .environmentObject(CreateEntryViewController())
             .environmentObject(EntryListViewController())
+            .environmentObject(RequestDetailsViewController())
             .environmentObject(UserDatabase())
             .environmentObject(EntryDatabase())
 

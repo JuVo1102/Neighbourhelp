@@ -10,6 +10,7 @@ import SwiftUI
 struct CreateEntryView: View {
     @EnvironmentObject var contentViewController: ContentViewController
     @EnvironmentObject var createEntryController: CreateEntryViewController
+    @EnvironmentObject var entryListViewController: EntryListViewController
     @EnvironmentObject var userDatabase: UserDatabase
     @EnvironmentObject var entryDatabase: EntryDatabase
     
@@ -52,18 +53,31 @@ struct CreateEntryView: View {
                 
                 Spacer()
                 
-                Button(action: {createEntryController.addEntryToDatabase(entryDatabase: entryDatabase, userDatabase: userDatabase, contentViewController: contentViewController)}){
+                Button(action: {createEntryController.addEntryToDatabase(
+                    entryDatabase: entryDatabase,
+                    userDatabase: userDatabase,
+                    contentViewController: contentViewController
+                )}){
                     Text("Create Request")
                         .font(.headline)
                         .foregroundColor(.black)
                         .padding()
                         .frame(width: 300, height: 50)
                         .background(Color(hue: 1.0, saturation: 0.028, brightness: 0.864))
-                        .cornerRadius(15.0)
+                        .cornerRadius(15.0)                        
                 }
                 Spacer()
             }
+            .onDisappear {
+                entryDatabase.getData(user: userDatabase.currentUser)
+                entryListViewController.queryEntries(entryDatabase: entryDatabase, userDatabase: userDatabase)
+            }            
             .navigationBarTitle("Create Request")
+            .navigationBarItems(
+                trailing:
+                    Button("Logout: \(userDatabase.currentUser.email)") {
+                EmptyView()
+            })
         }
     }
 }
@@ -74,6 +88,7 @@ struct CreateEntryView_Previews: PreviewProvider {
         CreateEntryView()
             .environmentObject(ContentViewController())
             .environmentObject(CreateEntryViewController())
+            .environmentObject(EntryListViewController())
             .environmentObject(UserDatabase())
             .environmentObject(EntryDatabase())
     }

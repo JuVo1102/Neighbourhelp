@@ -10,25 +10,38 @@ import SwiftUI
 struct EntryListView: View {
     @EnvironmentObject var contentViewController: ContentViewController
     @EnvironmentObject var entryListViewController: EntryListViewController
-    @EnvironmentObject var entryDataBase: EntryDatabase
-    @EnvironmentObject var userDataBase: UserDatabase
+    @EnvironmentObject var entryDatabase: EntryDatabase
+    @EnvironmentObject var userDatabase: UserDatabase
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(entryListViewController.sections) {
-                    section in Section(header: Text(section.header)) {
+                ForEach(entryListViewController.sections) { section in
+                    Section(header:
+                                EntryListCustomHeaderView(
+                                    sectionName: section.header,
+                                    color: Color(hue: 1.0, saturation: 0.028, brightness: 0.864)
+                                )
+                    )
+                    {
                         ForEach(section.entries) {
-                            SubtitleRow(text: $0.entryTitle, detailText: $0.createdByUser)
+                            SubtitleRow(text: $0.entryTitle, detailText: $0.createdByUser, entry: $0)
                         }
                     }
                 }
             }
+            .padding(0)
             .onAppear {
-                entryDataBase.getData(user: userDataBase.currentUser)
-                entryListViewController.queryEntries(entryDatabase: entryDataBase, userDataBase: userDataBase)
+                entryDatabase.getData(user: userDatabase.currentUser)
+                entryListViewController.queryEntries(entryDatabase: entryDatabase, userDatabase: userDatabase)
             }
-        }
+            .navigationBarTitle("Request-overview")
+            .navigationBarItems(
+                trailing:
+                    Button("Logout: \(userDatabase.currentUser.email)") {
+                        EmptyView()
+                    })
+        }        
     }    
 }
 

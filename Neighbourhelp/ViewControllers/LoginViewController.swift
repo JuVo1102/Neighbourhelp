@@ -31,6 +31,8 @@ class LoginViewController: ObservableObject {
                 entryDataBase.getData(user: userDataBase.currentUser)
                 contentViewController.homePageView = true
             }
+            email = ""
+            password = ""
         }
         else {
             warning = "email and passwort needs to be filled in"

@@ -40,7 +40,10 @@ class RegistryViewController: ObservableObject {
         }
         else {
             warning = "Please fill all Textfields"
-        }
-        
+        }        
+    }
+    
+    func back(contentViewController: ContentViewController) {
+        contentViewController.loginView = true  
     }
 }

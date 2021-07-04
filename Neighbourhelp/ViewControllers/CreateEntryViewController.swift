@@ -6,19 +6,24 @@
 //
 
 import Foundation
+import SwiftUI
 
 class CreateEntryViewController: ObservableObject {
     @Published var title: String = ""
     @Published var description: String = ""
     @Published var warning = ""
     
-    func addEntryToDatabase(entryDatabase: EntryDatabase, userDatabase: UserDatabase, contentViewController: ContentViewController) {
+    func addEntryToDatabase(entryDatabase: EntryDatabase, userDatabase: UserDatabase, contentViewController: ContentViewController) {       
         if title != "" && description != "" {
             let entry = Entry(entryTitle: title, entryDescription: description, createdByUser: userDatabase.currentUser.email, acceptedByUser: "")
-            entryDatabase.addOrChangeEntry(entry: entry)
+            entryDatabase.addEntry(entry: entry, userDataBase: userDatabase)
+            UIApplication.shared.endEditing()
             title = ""
             description = ""
-            contentViewController.tabSelection = 0
+            warning = "Request successfully created!"
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+                self.warning = ""
+            }
         }
         else {
             warning = "Title and description must have a value"

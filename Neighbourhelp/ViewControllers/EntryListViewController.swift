@@ -15,8 +15,8 @@ class EntryListViewController: ObservableObject {
     @Published var openEntries: [Entry] = []
     @Published var acceptedEntries: [Entry] = []   
     
-    func queryEntries(entryDatabase: EntryDatabase, userDataBase: UserDatabase) {
-        sections[0].entries = entryDatabase.entriesForUser.filter{ $0.acceptedByUser == userDataBase.currentUser.email}
+    func queryEntries(entryDatabase: EntryDatabase, userDatabase: UserDatabase) {
+        sections[0].entries = entryDatabase.entriesForUser.filter{ $0.acceptedByUser == userDatabase.currentUser.email}
         sections[1].entries = entryDatabase.entriesForUser.filter{ $0.acceptedByUser == ""}
     }
 }

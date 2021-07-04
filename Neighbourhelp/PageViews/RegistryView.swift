@@ -11,57 +11,14 @@ struct RegistryView: View {
     @EnvironmentObject var contentViewController: ContentViewController
     @EnvironmentObject var registryViewController: RegistryViewController
     @EnvironmentObject var userData: UserDatabase
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView {
             VStack (spacing: 30) {
                 Spacer()
                 
-                Text("Email:")
-                    .font(.callout)
-                    .bold()
-                
-                TextField("Enter email...", text: $registryViewController.email)
-                    .multilineTextAlignment(
-                        .center)
-                    .autocapitalization(.none)
-                    .font(.headline)
-                    .foregroundColor(.black)
-                    .padding()
-                    .frame(width: 300, height: 50)
-                    .background(Color(hue: 1.0, saturation: 0.028, brightness: 0.864))
-                    .cornerRadius(20)
-                
-                Text("Password:")
-                    .font(.callout)
-                    .bold()
-                
-                SecureField("Enter password...", text: $registryViewController.password)
-                    .multilineTextAlignment(
-                        .center)
-                    .font(.headline)
-                    .autocapitalization(.none)
-                    .foregroundColor(.black)
-                    .padding()
-                    .frame(width: 300, height: 50)
-                    .background(Color(hue: 1.0, saturation: 0.028, brightness: 0.864))
-                    .cornerRadius(20)
-                
-                Text("Confirm password:")
-                    .font(.callout)
-                    .bold()
-                
-                SecureField("Confirm password...", text: $registryViewController.confirmPassword)
-                    .multilineTextAlignment(
-                        .center)
-                    .font(.headline)
-                    .autocapitalization(.none)
-                    .foregroundColor(.black)
-                    .padding()
-                    .frame(width: 300, height: 50)
-                    .background(Color(hue: 1.0, saturation: 0.028, brightness: 0.864))
-                    .cornerRadius(20)
-               
+                CustomRegistryTextFieldView()               
                 
                 Spacer()
                 
@@ -78,8 +35,18 @@ struct RegistryView: View {
                 .frame(width: 300, height: 50)
                 .background(Color(hue: 1.0, saturation: 0.028, brightness: 0.864))
                 .cornerRadius(15.0)
-                .fullScreenCover(isPresented: $contentViewController.homePageView, content: HomePageView.init)                
+                .fullScreenCover(isPresented: $contentViewController.homePageView, content: HomePageView.init)
                 
+                Button("Back") {
+                }
+                .font(.headline)
+                .foregroundColor(.black)
+                .padding()
+                .frame(width: 300, height: 50)
+                .background(Color(hue: 1.0, saturation: 0.028, brightness: 0.864))
+                .cornerRadius(15.0)
+                
+                Spacer()
             }
             .navigationBarTitle("Registry")
         } 

@@ -12,7 +12,6 @@ struct LoginView: View {
     @EnvironmentObject var loginViewController: LoginViewController
     @EnvironmentObject var userDataBase: UserDatabase
     @EnvironmentObject var entryDataBase: EntryDatabase
-    //@Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView {

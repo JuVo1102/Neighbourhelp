@@ -8,13 +8,29 @@
 import SwiftUI
 
 struct ChatView: View {
+    @EnvironmentObject var contentViewController: ContentViewController
+    @EnvironmentObject var userDatabase: UserDatabase
+    @EnvironmentObject var entryDatabase: EntryDatabase
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            Text("Hello, Chat!")
+        }
+        .navigationBarTitle("Chats")
+        .navigationBarItems(
+            trailing:
+                Button("Logout: \(userDatabase.currentUser.email)") {
+            EmptyView()
+        })
+        
     }
 }
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
         ChatView()
+            .environmentObject(ContentViewController())
+            .environmentObject(EntryDatabase())
+            .environmentObject(UserDatabase())
     }
 }
