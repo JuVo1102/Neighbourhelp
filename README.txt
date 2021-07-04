@@ -9,6 +9,19 @@
     </objects>
 </document>
 
+The Neighbourhelp-App is supposed to help people to get help for daily tasks they are unable to do themselves
+Pages:
+    Login
+    Registration
+    Tabview
+        List of Entries
+            Detailview of Entries
+        Entry-Creationpage
+        Chat (work in progress)
+        
+Authentication provided by Firebase
+Database provided by  Firebase
+
 To get all the needed dependencies (Guide: https://firebase.google.com/docs/ios/setup)
 1.  (Optional if you get a external config file) Add a realtime database and authentication to your firebase project
 2.  Add the GoogleService.Info.plist as firebase-configuration-file to your projects root directory
