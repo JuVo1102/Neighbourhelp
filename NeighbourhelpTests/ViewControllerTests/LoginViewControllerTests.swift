@@ -19,7 +19,7 @@ class LoginViewControllerTests: XCTestCase {
         let loginViewController = LoginViewController()
         loginViewController.email = "test@test.de"
         loginViewController.password = "password"
-        let loginExpectation = self.expectation(description: "waiting for database")
+        let loginExpectation = self.expectation(description: "waiting for login")
         
         loginViewController.login(
             userDatabase: userDatabase,

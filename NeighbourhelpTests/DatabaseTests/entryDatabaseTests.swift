@@ -53,7 +53,7 @@ class entryDatabaseTests: XCTestCase {
         let entryDatabase = EntryDatabase()
         let user = User(email: "test@test.de", password: "password")
         let queryExpectation = expectation(description: "waiting for entry-query")
-        let changeExpectation = expectation(description: "waiting for entry-query")
+        let changeExpectation = expectation(description: "waiting for entry to be changed")
         
         entryDatabase.getData(user: user)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
@@ -95,7 +95,7 @@ class entryDatabaseTests: XCTestCase {
             createdByUser: "",
             acceptedByUser: ""
         )
-        let deleteExpectation = expectation(description: "waiting for entry-query")
+        let deleteExpectation = expectation(description: "waiting for entry to be deleted")
         let queryExpectation = expectation(description: "waiting for entry-query")
         
         entryDatabase.getData(user: user)

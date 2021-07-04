@@ -19,7 +19,7 @@ class RegistryViewControllerTests: XCTestCase {
         registryViewController.email = "unitTest@unitTest.de"
         registryViewController.password = "testPassword"
         registryViewController.confirmPassword = "testPassword"
-        let registryExpectation = self.expectation(description: "waiting for database")
+        let registryExpectation = self.expectation(description: "waiting for registration")
         
         registryViewController.register(
             userdataBase: userDatabase,

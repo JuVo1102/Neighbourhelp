@@ -33,6 +33,7 @@
 		CA98F1CA2691FFBB00246395 /* entryDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA98F1C92691FFBB00246395 /* entryDatabaseTests.swift */; };
 		CA98F1E82692248100246395 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA98F1E72692248100246395 /* LoginViewControllerTests.swift */; };
 		CA98F1F026922C7900246395 /* RegistryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA98F1EF26922C7900246395 /* RegistryViewControllerTests.swift */; };
+		CA98F1F5269238C200246395 /* CreateEntryViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA98F1F4269238C200246395 /* CreateEntryViewControllerTests.swift */; };
 		CA9C84272691CD42001FCF9D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9C84262691CD42001FCF9D /* Extensions.swift */; };
 		CA9C842C2691D17C001FCF9D /* RequestDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9C842B2691D17C001FCF9D /* RequestDetailHeaderView.swift */; };
 		CA9C84312691D8AA001FCF9D /* EntryListCustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9C84302691D8AA001FCF9D /* EntryListCustomHeaderView.swift */; };
@@ -96,6 +97,7 @@
 		CA98F1C92691FFBB00246395 /* entryDatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = entryDatabaseTests.swift; sourceTree = "<group>"; };
 		CA98F1E72692248100246395 /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
 		CA98F1EF26922C7900246395 /* RegistryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistryViewControllerTests.swift; sourceTree = "<group>"; };
+		CA98F1F4269238C200246395 /* CreateEntryViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEntryViewControllerTests.swift; sourceTree = "<group>"; };
 		CA9C84262691CD42001FCF9D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CA9C842B2691D17C001FCF9D /* RequestDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetailHeaderView.swift; sourceTree = "<group>"; };
 		CA9C84302691D8AA001FCF9D /* EntryListCustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListCustomHeaderView.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			children = (
 				CA98F1E72692248100246395 /* LoginViewControllerTests.swift */,
 				CA98F1EF26922C7900246395 /* RegistryViewControllerTests.swift */,
+				CA98F1F4269238C200246395 /* CreateEntryViewControllerTests.swift */,
 			);
 			path = ViewControllerTests;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				CA98F1E82692248100246395 /* LoginViewControllerTests.swift in Sources */,
 				CA98F1F026922C7900246395 /* RegistryViewControllerTests.swift in Sources */,
 				CA98F12C2691F90600246395 /* userDatabaseTests.swift in Sources */,
+				CA98F1F5269238C200246395 /* CreateEntryViewControllerTests.swift in Sources */,
 				CAE9EE19268E50B900D3447E /* NeighbourhelpTests.swift in Sources */,
 				CA98F1CA2691FFBB00246395 /* entryDatabaseTests.swift in Sources */,
 			);
