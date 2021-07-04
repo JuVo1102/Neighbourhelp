@@ -10,8 +10,7 @@ import SwiftUI
 struct RegistryView: View {
     @EnvironmentObject var contentViewController: ContentViewController
     @EnvironmentObject var registryViewController: RegistryViewController
-    @EnvironmentObject var userData: UserDatabase
-    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var userDatabase: UserDatabase
     
     var body: some View {
         NavigationView {
@@ -27,7 +26,9 @@ struct RegistryView: View {
                     .foregroundColor(.red)
                 
                 Button("Register!") {
-                    registryViewController.register(userdataBase: userData, contentViewController: contentViewController)
+                    registryViewController.register(
+                        userdataBase: userDatabase,
+                        contentViewController: contentViewController)
                 }
                 .font(.headline)
                 .foregroundColor(.black)

@@ -14,7 +14,7 @@ import XCTest
 
 class userDatabaseTests: XCTestCase {
     
-    func testLogin() {
+    func testLoginDatabase() {
         
         let user = User(email: "test@test.de", password: "password")
         let userDatabase = UserDatabase()
@@ -44,14 +44,12 @@ class userDatabaseTests: XCTestCase {
             addingExpectation.fulfill()
         }
         
-        
-        
         userDatabase.loginUser(email: user.email, password: user.password)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
             loginExpectation.fulfill()
         }
-        waitForExpectations(timeout: 5, handler: nil)
         
+        waitForExpectations(timeout: 5, handler: nil)        
         XCTAssert(userDatabase.currentUser.email == user.email, "Failed to Add user to the Database")
         
     }

@@ -14,11 +14,11 @@ class LoginViewController: ObservableObject {
     @Published var warning: String = ""
     
     
-    func login(userDataBase: UserDatabase, entryDataBase: EntryDatabase, contentViewController: ContentViewController) {
+    func login(userDatabase: UserDatabase, entryDatabase: EntryDatabase, contentViewController: ContentViewController) {
         if self.checkCredentials() {
             if validateEmail() {
-                userDataBase.loginUser(email: email, password: password)
-                entryDataBase.getData(user: userDataBase.currentUser)
+                userDatabase.loginUser(email: email, password: password)
+                entryDatabase.getData(user: userDatabase.currentUser)
                 contentViewController.homePageView = true
             }
             else {
@@ -31,7 +31,7 @@ class LoginViewController: ObservableObject {
         }
     }
     
-    private func checkCredentials() -> Bool {
+    func checkCredentials() -> Bool {
         if password != "" && email != "" {
             return true
         }
@@ -40,7 +40,7 @@ class LoginViewController: ObservableObject {
         }
     }
     
-    private func validateEmail() -> Bool {
+    func validateEmail() -> Bool {
         // Quelle: https://www.hackingwithswift.com/articles/108/how-to-use-regular-expression-in-swift
         let range = NSRange(location: 0, length: email.utf16.count)
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Z0-9a-z._%+-]+\\.[A-Za-z]{2,64}"
@@ -54,7 +54,7 @@ class LoginViewController: ObservableObject {
         }
     }
     
-    private func resetInputs() {
+    func resetInputs() {
         email = ""
         password = ""
     }

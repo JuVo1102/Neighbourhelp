@@ -10,8 +10,8 @@ import SwiftUI
 struct LoginView: View {
     @EnvironmentObject var contentViewController: ContentViewController
     @EnvironmentObject var loginViewController: LoginViewController
-    @EnvironmentObject var userDataBase: UserDatabase
-    @EnvironmentObject var entryDataBase: EntryDatabase
+    @EnvironmentObject var userDatabase: UserDatabase
+    @EnvironmentObject var entryDatabase: EntryDatabase
     
     var body: some View {
         NavigationView {
@@ -56,7 +56,7 @@ struct LoginView: View {
                     .foregroundColor(.red)
                 
                 Button("Login!") {
-                    loginViewController.login(userDataBase: userDataBase, entryDataBase: entryDataBase, contentViewController: contentViewController)
+                    loginViewController.login(userDatabase: userDatabase, entryDatabase: entryDatabase, contentViewController: contentViewController)
                 }
                 .font(.headline)
                 .foregroundColor(.black)
