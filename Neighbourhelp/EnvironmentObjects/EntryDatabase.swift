@@ -14,6 +14,7 @@ class EntryDatabase: ObservableObject {
     @Published var entriesForUser: [Entry] = []
     
     func addEntry(entry: Entry){
+        print("addEntry was called")
         let object: [String: String] = [
             "entryTitle": entry.entryTitle,
             "entryDescription": entry.entryDescription,
@@ -24,6 +25,7 @@ class EntryDatabase: ObservableObject {
     }
     
     func changeEntry(entry: Entry) {
+        print("changeEntry was called")
         let object: [String: String] = [
             "entryTitle": entry.entryTitle,
             "entryDescription": entry.entryDescription,
@@ -31,6 +33,7 @@ class EntryDatabase: ObservableObject {
             "acceptedByUser": entry.acceptedByUser
         ]
         database.child("Entries").child(entry.id.uuidString).updateChildValues(object)
+        
     }
     
     func deleteEntry(entry: Entry) {

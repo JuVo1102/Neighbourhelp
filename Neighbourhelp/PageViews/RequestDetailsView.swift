@@ -28,8 +28,8 @@ struct RequestDetailsView: View {
                 
                 Button(action: {requestDetailsViewController.process(
                         entry: entry,
-                        entryDataBase: entryDatabase,
-                        userDataBase: userDataBase)}) {
+                        entryDatabase: entryDatabase,
+                        userDatabase: userDataBase)}) {
                     Text(requestDetailsViewController.buttonText)
                 }
                 .font(.headline)

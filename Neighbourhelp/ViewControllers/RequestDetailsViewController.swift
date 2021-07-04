@@ -12,14 +12,23 @@ class RequestDetailsViewController: ObservableObject {
     @Published var buttonText : String = ""
     @Published var opacity: Double = 0.0
     
-    func process(entry: Entry, entryDataBase: EntryDatabase, userDataBase: UserDatabase) {
-        if entry.acceptedByUser == "" && entry.createdByUser != userDataBase.currentUser.email {
+    func process(entry: Entry, entryDatabase: EntryDatabase, userDatabase: UserDatabase) {
+        if validateInputs(entry: entry, userDatabase: userDatabase) {
             var newEntry = entry
-            newEntry.acceptedByUser = userDataBase.currentUser.email
-            entryDataBase.changeEntry(entry: newEntry)
+            newEntry.acceptedByUser = userDatabase.currentUser.email
+            entryDatabase.changeEntry(entry: newEntry)
         }
         else {
-            entryDataBase.deleteEntry(entry: entry)
+            entryDatabase.deleteEntry(entry: entry)
+        }
+    }
+    
+    func validateInputs(entry: Entry, userDatabase: UserDatabase) -> Bool {
+        if entry.acceptedByUser == "" && entry.createdByUser != userDatabase.currentUser.email {
+            return true
+        }
+        else {
+            return false
         }
     }
     
@@ -31,7 +40,7 @@ class RequestDetailsViewController: ObservableObject {
         }
         else if entry.acceptedByUser == userDataBase.currentUser.email && entry.createdByUser != userDataBase.currentUser.email {
             self.disabled = true
-            self.buttonText = "should be hidedn -> not Creator"
+            self.buttonText = "should be hidden -> not Creator"
             self.opacity = 0.0
         }
         else if entry.acceptedByUser == "" && entry.createdByUser == userDataBase.currentUser.email {
