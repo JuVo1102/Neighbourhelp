@@ -39,7 +39,7 @@ struct RequestDetailsView: View {
                 .background(Color(hue: 1.0, saturation: 0.028, brightness: 0.864))
                 .cornerRadius(15.0)
                 .opacity(requestDetailsViewController.opacity)
-                .disabled(requestDetailsViewController.hideButton)
+                .disabled(requestDetailsViewController.disabled)
                 
                 Spacer()
             }

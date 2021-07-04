@@ -13,7 +13,7 @@ class EntryDatabase: ObservableObject {
     @Published var database: DatabaseReference! = Database.database().reference()
     @Published var entriesForUser: [Entry] = []
     
-    func addEntry(entry: Entry, userDataBase: UserDatabase) {
+    func addEntry(entry: Entry){
         let object: [String: String] = [
             "entryTitle": entry.entryTitle,
             "entryDescription": entry.entryDescription,
@@ -21,10 +21,9 @@ class EntryDatabase: ObservableObject {
             "acceptedByUser": entry.acceptedByUser
         ]
         self.database.child("Entries").child(entry.id.uuidString).setValue(object)
-        self.getData(user: userDataBase.currentUser)
     }
     
-    func changeEntry(entry: Entry, userDataBase: UserDatabase) {
+    func changeEntry(entry: Entry) {
         let object: [String: String] = [
             "entryTitle": entry.entryTitle,
             "entryDescription": entry.entryDescription,
@@ -32,7 +31,6 @@ class EntryDatabase: ObservableObject {
             "acceptedByUser": entry.acceptedByUser
         ]
         database.child("Entries").child(entry.id.uuidString).updateChildValues(object)
-        self.getData(user: userDataBase.currentUser)
     }
     
     func deleteEntry(entry: Entry) {
@@ -74,15 +72,6 @@ class EntryDatabase: ObservableObject {
                         createdByUser: entry.value.value(forKey: "createdByUser") as? String ?? "",
                         acceptedByUser: entry.value.value(forKey: "acceptedByUser") as? String ?? ""
                     )
-                    
-                    /*let checkElement = self.entriesForUser.first { $0.id == tmpEntry.id }
-                    if checkElement != nil {
-                        let index = self.entriesForUser.firstIndex { $0.id == tmpEntry.id }
-                        self.entriesForUser[index!] = tmpEntry
-                    }
-                    else {
-                        self.entriesForUser.append(tmpEntry)
-                    }*/
                     newEntries.append(tmpEntry)
                     self.entriesForUser = newEntries
                 }

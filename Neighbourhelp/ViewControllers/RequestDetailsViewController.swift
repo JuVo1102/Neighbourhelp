@@ -8,7 +8,7 @@
 import Foundation
 
 class RequestDetailsViewController: ObservableObject {
-    @Published var hideButton : Bool = true
+    @Published var disabled : Bool = true
     @Published var buttonText : String = ""
     @Published var opacity: Double = 0.0
     
@@ -16,7 +16,7 @@ class RequestDetailsViewController: ObservableObject {
         if entry.acceptedByUser == "" && entry.createdByUser != userDataBase.currentUser.email {
             var newEntry = entry
             newEntry.acceptedByUser = userDataBase.currentUser.email
-            entryDataBase.changeEntry(entry: newEntry, userDataBase: userDataBase)
+            entryDataBase.changeEntry(entry: newEntry)
         }
         else {
             entryDataBase.deleteEntry(entry: entry)
@@ -25,22 +25,22 @@ class RequestDetailsViewController: ObservableObject {
     
     func checkButton (entry: Entry, userDataBase: UserDatabase) {
         if entry.acceptedByUser != "" && entry.createdByUser == userDataBase.currentUser.email {
-            self.hideButton = false
+            self.disabled = false
             self.buttonText = "Complete"
             self.opacity = 1.0
         }
         else if entry.acceptedByUser == userDataBase.currentUser.email && entry.createdByUser != userDataBase.currentUser.email {
-            self.hideButton = true
+            self.disabled = true
             self.buttonText = "should be hidedn -> not Creator"
             self.opacity = 0.0
         }
         else if entry.acceptedByUser == "" && entry.createdByUser == userDataBase.currentUser.email {
-            self.hideButton = true
+            self.disabled = false
             self.buttonText = "Delete"
             self.opacity = 1.0
         }
         else {
-            self.hideButton = false
+            self.disabled = false
             self.buttonText = "Accept"
             self.opacity = 1.0
         }

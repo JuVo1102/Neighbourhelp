@@ -16,7 +16,7 @@ class CreateEntryViewController: ObservableObject {
     func addEntryToDatabase(entryDatabase: EntryDatabase, userDatabase: UserDatabase, contentViewController: ContentViewController) {       
         if title != "" && description != "" {
             let entry = Entry(entryTitle: title, entryDescription: description, createdByUser: userDatabase.currentUser.email, acceptedByUser: "")
-            entryDatabase.addEntry(entry: entry, userDataBase: userDatabase)
+            entryDatabase.addEntry(entry: entry)
             UIApplication.shared.endEditing()
             title = ""
             description = ""
