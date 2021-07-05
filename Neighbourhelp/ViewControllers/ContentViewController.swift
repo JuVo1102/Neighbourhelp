@@ -14,6 +14,11 @@ class ContentViewController:  UIViewController, ObservableObject {
     @Published var registryView: Bool = false;
     @Published var entryDetailView: Bool = false;
     @Published var tabSelection = 0
-    @Published var fullScreen: Bool = true    
+    @Published var fullScreen: Bool = true
+    
+    func navigateToLogin() {
+        homePageView.toggle()
+        loginView.toggle()
+    }
 }
 

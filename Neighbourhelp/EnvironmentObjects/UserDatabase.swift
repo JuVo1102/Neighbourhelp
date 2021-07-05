@@ -36,4 +36,15 @@ class UserDatabase: ObservableObject {
             }
         }
     }
+    
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+            currentUser.email = ""
+            currentUser.password = ""
+        }
+        catch {
+            print(error)
+        }
+    }
 }

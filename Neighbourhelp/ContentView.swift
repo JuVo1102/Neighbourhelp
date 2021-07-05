@@ -18,17 +18,26 @@ struct ContentView: View {
     @EnvironmentObject var userDataBase: UserDatabase
     
     var body: some View {
-        // Quelle für Navigation: https://www.hackingwithswift.com/quick-start/swiftui/how-to-present-a-full-screen-modal-view-using-fullscreencover vom 02.07.2021
-        LoginView()
-            .fullScreenCover(isPresented: $viewController.loginView, content: LoginView.init)
-            .environmentObject(viewController)
-            .environmentObject(loginController)
-            .environmentObject(registryController)
-            .environmentObject(createEntryController)
-            .environmentObject(entryListController)
-            .environmentObject(requestDetailsController)
-            .environmentObject(userDataBase)
-            .environmentObject(entryDataBase)
+        // Quelle für Navigation: https://developer.apple.com/forums/thread/667742
+        VStack {
+            if viewController.loginView {
+                LoginView()
+            }
+            else if viewController.registryView {
+                RegistryView()
+            }
+            else if viewController.homePageView {
+                HomePageView()
+            }
+        }
+        .environmentObject(viewController)
+        .environmentObject(loginController)
+        .environmentObject(registryController)
+        .environmentObject(createEntryController)
+        .environmentObject(entryListController)
+        .environmentObject(requestDetailsController)
+        .environmentObject(userDataBase)
+        .environmentObject(entryDataBase)
     }
 }
 

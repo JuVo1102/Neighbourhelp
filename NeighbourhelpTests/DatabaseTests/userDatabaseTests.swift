@@ -53,4 +53,24 @@ class userDatabaseTests: XCTestCase {
         XCTAssert(userDatabase.currentUser.email == user.email, "Failed to Add user to the Database")
         
     }
+    
+    func testLogout() {
+        let user = User(email: "test@test.de", password: "anyPassword")
+        let userDatabase = UserDatabase()
+        let logoutExpectation = self.expectation(description: "Waiting for logout")
+        let loginExpectation = self.expectation(description: "waiting for login")
+        
+        userDatabase.loginUser(email: user.email, password: user.password)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+            loginExpectation.fulfill()
+            
+            userDatabase.logout()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+                logoutExpectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
+        XCTAssert(userDatabase.currentUser.email == "", "Failed to logout user")
+    }
 }

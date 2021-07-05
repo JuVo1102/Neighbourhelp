@@ -76,8 +76,9 @@ struct CreateEntryView: View {
             .navigationBarItems(
                 trailing:
                     Button("Logout: \(userDatabase.currentUser.email)") {
-                EmptyView()
-            })
+                        userDatabase.logout()
+                        contentViewController.navigateToLogin()
+                    })
         }
     }
 }

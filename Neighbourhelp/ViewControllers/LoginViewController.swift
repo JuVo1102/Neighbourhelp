@@ -18,8 +18,11 @@ class LoginViewController: ObservableObject {
         if self.checkCredentials() {
             if validateEmail() {
                 userDatabase.loginUser(email: email, password: password)
-                entryDatabase.getData(user: userDatabase.currentUser)
-                contentViewController.homePageView = true
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {                    
+                    entryDatabase.getData(user: userDatabase.currentUser)
+                    contentViewController.loginView.toggle()
+                    contentViewController.homePageView.toggle()
+                }                
             }
             else {
                 warning = "email must be a valid email"
@@ -60,6 +63,7 @@ class LoginViewController: ObservableObject {
     }
     
     func navigateToRegistry(contentViewController: ContentViewController) {
-        contentViewController.registryView = true
+        contentViewController.loginView.toggle()
+        contentViewController.registryView.toggle()
     }
 }

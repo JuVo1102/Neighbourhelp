@@ -14,6 +14,7 @@ class RegistryViewControllerTests: XCTestCase {
     
     func testRegister() {
         let userDatabase = UserDatabase()
+        let entryDatabase = EntryDatabase()
         let contentViewController = ContentViewController()
         let registryViewController = RegistryViewController()
         registryViewController.email = "unitTest@unitTest.de"
@@ -23,6 +24,7 @@ class RegistryViewControllerTests: XCTestCase {
         
         registryViewController.register(
             userdataBase: userDatabase,
+            entryDatabase: entryDatabase,
             contentViewController: contentViewController)
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) {

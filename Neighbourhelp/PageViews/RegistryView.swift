@@ -10,6 +10,7 @@ import SwiftUI
 struct RegistryView: View {
     @EnvironmentObject var contentViewController: ContentViewController
     @EnvironmentObject var registryViewController: RegistryViewController
+    @EnvironmentObject var entryDatabase: EntryDatabase
     @EnvironmentObject var userDatabase: UserDatabase
     
     var body: some View {
@@ -28,6 +29,7 @@ struct RegistryView: View {
                 Button("Register!") {
                     registryViewController.register(
                         userdataBase: userDatabase,
+                        entryDatabase: entryDatabase,
                         contentViewController: contentViewController)
                 }
                 .font(.headline)
@@ -36,9 +38,9 @@ struct RegistryView: View {
                 .frame(width: 300, height: 50)
                 .background(Color(hue: 1.0, saturation: 0.028, brightness: 0.864))
                 .cornerRadius(15.0)
-                .fullScreenCover(isPresented: $contentViewController.homePageView, content: HomePageView.init)
                 
                 Button("Back") {
+                    registryViewController.back(contentViewController: contentViewController)
                 }
                 .font(.headline)
                 .foregroundColor(.black)
@@ -60,5 +62,6 @@ struct RegistryView_Previews: PreviewProvider {
             .environmentObject(ContentViewController())
             .environmentObject(RegistryViewController())
             .environmentObject(UserDatabase())
+            .environmentObject(EntryDatabase())
     }
 }

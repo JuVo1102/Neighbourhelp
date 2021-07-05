@@ -14,7 +14,7 @@ class RequestDetailsViewControllerTests: XCTestCase {
     
     func testProcessValidatedInputs() {
         let requestDetailsViewController = RequestDetailsViewController()
-        var newEntry = Entry(
+        let newEntry = Entry(
             entryTitle: "UnitTest",
             entryDescription: "UnitTest",
             createdByUser: "",
@@ -38,7 +38,9 @@ class RequestDetailsViewControllerTests: XCTestCase {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                 addingExpectation.fulfill()
                 
-                requestDetailsViewController.process(entry: newEntry, entryDatabase: entryDatabase, userDatabase: userDatabase)
+                var uuid: UUID? = newEntry.id
+                requestDetailsViewController.process(entry: newEntry, entryDatabase: entryDatabase, userDatabase: userDatabase, selection: &uuid)
+                
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                     changeExpectation.fulfill()
                     
@@ -88,7 +90,8 @@ class RequestDetailsViewControllerTests: XCTestCase {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                 addingExpectation.fulfill()
                 
-                requestDetailsViewController.process(entry: newEntry, entryDatabase: entryDatabase, userDatabase: userDatabase)
+                var uuid: UUID? = newEntry.id
+                requestDetailsViewController.process(entry: newEntry, entryDatabase: entryDatabase, userDatabase: userDatabase, selection: &uuid)
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                     changeExpectation.fulfill()
                     

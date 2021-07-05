@@ -54,7 +54,7 @@ struct LoginView: View {
                 Text(loginViewController.warning)
                     .bold()
                     .foregroundColor(.red)
-                
+                                
                 Button("Login!") {
                     loginViewController.login(userDatabase: userDatabase, entryDatabase: entryDatabase, contentViewController: contentViewController)
                 }
@@ -64,7 +64,6 @@ struct LoginView: View {
                 .frame(width: 300, height: 50)
                 .background(Color(hue: 1.0, saturation: 0.028, brightness: 0.864))
                 .cornerRadius(15.0)
-                .fullScreenCover(isPresented: $contentViewController.homePageView, content: HomePageView.init)
                 
                 Button("Register!") {
                     loginViewController.navigateToRegistry(contentViewController: contentViewController)
@@ -75,7 +74,6 @@ struct LoginView: View {
                 .frame(width: 300, height: 50)
                 .background(Color(hue: 1.0, saturation: 0.028, brightness: 0.864))
                 .cornerRadius(15.0)
-                .fullScreenCover(isPresented: $contentViewController.registryView, content: RegistryView.init)
                 
                 Spacer()
             }

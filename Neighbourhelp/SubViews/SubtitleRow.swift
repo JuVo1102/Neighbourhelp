@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// Quelle für die table-navigation: https://stackoverflow.com/questions/63197064/how-does-one-use-navigationlink-isactive-binding-when-working-with-list-in-swift
+
 struct SubtitleRow<T: StringProtocol>: View {
     var text: T
     var detailText: T

@@ -32,14 +32,14 @@ struct EntryListView: View {
             }
             .padding(0)
             .onAppear {
-                entryDatabase.getData(user: userDatabase.currentUser)
                 entryListViewController.queryEntries(entryDatabase: entryDatabase, userDatabase: userDatabase)
             }
             .navigationBarTitle("Request-overview")
             .navigationBarItems(
                 trailing:
                     Button("Logout: \(userDatabase.currentUser.email)") {
-                        EmptyView()
+                        userDatabase.logout()
+                        contentViewController.navigateToLogin()
                     })
         }        
     }    

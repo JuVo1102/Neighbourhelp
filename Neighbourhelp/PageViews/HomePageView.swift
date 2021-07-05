@@ -9,7 +9,8 @@ import SwiftUI
 
 struct HomePageView: View {
     @EnvironmentObject var viewController: ContentViewController
-    @EnvironmentObject var userData: UserDatabase
+    @EnvironmentObject var userDatabase: UserDatabase
+    @EnvironmentObject var entryDatabase: EntryDatabase
     
     var body: some View {
         TabView(selection: $viewController.tabSelection) {
@@ -30,5 +31,6 @@ struct HomePageView_Previews: PreviewProvider {
         HomePageView()
             .environmentObject(ContentViewController())
             .environmentObject(UserDatabase())
+            .environmentObject(EntryDatabase())
     }
 }

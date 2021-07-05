@@ -16,12 +16,18 @@ class RegistryViewController: ObservableObject {
     @Published var confirmPassword: String = ""
     @Published var warning: String = ""
     
-    func register(userdataBase: UserDatabase, contentViewController: ContentViewController) {
+    func register(userdataBase: UserDatabase, entryDatabase: EntryDatabase, contentViewController: ContentViewController) {
         if email != "" && password != "" && confirmPassword != "" {
             if validatePassword(){
                 if validateEmail() {
-                    userdataBase.AddUser(email: email, password: password)                    
-                    contentViewController.homePageView = true
+                    userdataBase.AddUser(email: email, password: password)
+                    warning = "waiting for Registration"
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+                        self.warning = ""
+                        entryDatabase.getData(user: userdataBase.currentUser)
+                        contentViewController.registryView.toggle()
+                        contentViewController.homePageView.toggle()
+                    }  
                     self.resetInputs()
                 }
                 else {
@@ -65,6 +71,7 @@ class RegistryViewController: ObservableObject {
     }
     
     func back(contentViewController: ContentViewController) {
-        contentViewController.loginView = true  
+        contentViewController.registryView.toggle()
+        contentViewController.loginView.toggle()
     }
 }
