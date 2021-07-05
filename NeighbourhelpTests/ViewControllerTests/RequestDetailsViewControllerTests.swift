@@ -12,6 +12,7 @@ import XCTest
 
 class RequestDetailsViewControllerTests: XCTestCase {
     
+    // Tests if the process function successfully changes an entry in the database
     func testProcessValidatedInputs() {
         let requestDetailsViewController = RequestDetailsViewController()
         let newEntry = Entry(
@@ -31,20 +32,24 @@ class RequestDetailsViewControllerTests: XCTestCase {
         var successfull = false
         
         userDatabase.loginUser(email: user.email, password: user.password)
+        // Waits for the user to be logged in
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
             loginExpectation.fulfill()
             
             entryDatabase.addEntry(entry: newEntry)
+            // Waits for the database to fetch the entry for further validation
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                 addingExpectation.fulfill()
                 
                 var uuid: UUID? = newEntry.id
                 requestDetailsViewController.process(entry: newEntry, entryDatabase: entryDatabase, userDatabase: userDatabase, selection: &uuid)
-                
+                // Waits for the process function of the viewController
+                // Either changing an entry or deleting an entry
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                     changeExpectation.fulfill()
                     
                     entryDatabase.getData(user: user)
+                    // Waits for the database to fetch the entry for further validation
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                         for entry in entryDatabase.entriesForUser {
                             print(entry.entryTitle)
@@ -64,6 +69,7 @@ class RequestDetailsViewControllerTests: XCTestCase {
         XCTAssert(successfull, "Failed to change Entry")
     }
     
+    // Tests if the process function successfully deletes an entry in the database
     func testProcessDelete() {
         let requestDetailsViewController = RequestDetailsViewController()
         let newEntry = Entry(
@@ -83,19 +89,23 @@ class RequestDetailsViewControllerTests: XCTestCase {
         var successfull = false
         
         userDatabase.loginUser(email: user.email, password: user.password)
+        // Waits for the user to be logged in
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
             loginExpectation.fulfill()
             
             entryDatabase.addEntry(entry: newEntry)
+            // Waits for the database to add an Entry
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                 addingExpectation.fulfill()
                 
                 var uuid: UUID? = newEntry.id
                 requestDetailsViewController.process(entry: newEntry, entryDatabase: entryDatabase, userDatabase: userDatabase, selection: &uuid)
+                // Waits for the database to delete an entry
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                     changeExpectation.fulfill()
                     
                     entryDatabase.getData(user: user)
+                    // Waits for the database to fetch the entry for further validation
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                         for entry in entryDatabase.entriesForUser {
                             print(entry.entryTitle)
@@ -142,6 +152,8 @@ class RequestDetailsViewControllerTests: XCTestCase {
                   "Inputs not Valid")
     }
     
+    // The following tests test the different visualizations for the button in the requestDetailsView based on the status of the given entry
+    
     func testCheckButtonComplete () {
         let requestDetailsViewController = RequestDetailsViewController()
         let entry = Entry(
@@ -156,6 +168,7 @@ class RequestDetailsViewControllerTests: XCTestCase {
         let loginExpectation = self.expectation(description: "waiting for login")
         
         userDatabase.loginUser(email: user.email, password: user.password)
+        // Waits for the user to be logged in
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
             loginExpectation.fulfill()
             requestDetailsViewController.checkButton(entry: entry, userDataBase: userDatabase)
@@ -181,6 +194,7 @@ class RequestDetailsViewControllerTests: XCTestCase {
         let loginExpectation = self.expectation(description: "waiting for login")
         
         userDatabase.loginUser(email: user.email, password: user.password)
+        // Waits for the user to be logged in
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
             loginExpectation.fulfill()
             requestDetailsViewController.checkButton(entry: entry, userDataBase: userDatabase)
@@ -206,6 +220,7 @@ class RequestDetailsViewControllerTests: XCTestCase {
         let loginExpectation = self.expectation(description: "waiting for login")
         
         userDatabase.loginUser(email: user.email, password: user.password)
+        // Waits for the user to be logged in
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
             loginExpectation.fulfill()
             requestDetailsViewController.checkButton(entry: entry, userDataBase: userDatabase)
@@ -231,6 +246,7 @@ class RequestDetailsViewControllerTests: XCTestCase {
         let loginExpectation = self.expectation(description: "waiting for login")
         
         userDatabase.loginUser(email: user.email, password: user.password)
+        // Waits for the user to be logged in
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
             loginExpectation.fulfill()
             requestDetailsViewController.checkButton(entry: entry, userDataBase: userDatabase)

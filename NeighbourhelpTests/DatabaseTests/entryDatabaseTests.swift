@@ -28,11 +28,13 @@ class entryDatabaseTests: XCTestCase {
         let queryExpectation = expectation(description: "waiting for entry-query")
         
         entryDatabase.addEntry(entry: entry)
+        // waits for the database to add an entry
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
             addingExpectation.fulfill()
         }
         
         entryDatabase.getData(user: user)
+        // Waits for the database to fetch the entry for further validation
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
             queryExpectation.fulfill()
         }
@@ -56,6 +58,7 @@ class entryDatabaseTests: XCTestCase {
         let changeExpectation = expectation(description: "waiting for entry to be changed")
         
         entryDatabase.getData(user: user)
+        // Waits for the database to fetch the entry for further validation
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
             for entry in entryDatabase.entriesForUser {
                 if entry.entryTitle == "UnitTest" {
@@ -65,10 +68,12 @@ class entryDatabaseTests: XCTestCase {
             newEntry.entryTitle = "changed Entry"
             
             entryDatabase.changeEntry(entry: newEntry)
+            // Waits for the database to change the entry
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
                 changeExpectation.fulfill()
                 
                 entryDatabase.getData(user: user)
+                // Waits for the database to fetch the entry for further validation
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
                     for entry in entryDatabase.entriesForUser {
                         if entry.entryTitle == "changed Entry" {
@@ -99,6 +104,7 @@ class entryDatabaseTests: XCTestCase {
         let queryExpectation = expectation(description: "waiting for entry-query")
         
         entryDatabase.getData(user: user)
+        // Waits for the database to fetch the entry for further validation
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
             for entry in entryDatabase.entriesForUser {
                 if entry.entryTitle == "changed Entry" {
@@ -106,9 +112,11 @@ class entryDatabaseTests: XCTestCase {
                 }
             }
             entryDatabase.deleteEntry(entry: databaseEntry)
+            // Waits for the database to delete the enry
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                 
                 entryDatabase.getData(user: user)
+                // Waits for the database to fetch the entry for further validation
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                     
                     if entryDatabase.entriesForUser.contains(where: {

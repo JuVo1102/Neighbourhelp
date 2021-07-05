@@ -31,7 +31,7 @@ class RegistryViewController: ObservableObject {
                         // Fetches the entries from the database for visualization
                         entryDatabase.getData(user: userdataBase.currentUser)
                         // Navigates to the homePageView by toggling booleans of the contentViewController
-                        contentViewController.registryView.toggle()s
+                        contentViewController.registryView.toggle()
                         contentViewController.homePageView.toggle()
                     }  
                     self.resetInputs()

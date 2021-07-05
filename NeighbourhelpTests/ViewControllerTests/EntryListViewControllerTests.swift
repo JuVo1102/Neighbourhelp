@@ -22,10 +22,12 @@ class EntryListViewControllerTests: XCTestCase {
         let queryExpectation = self.expectation(description: "waiting for data query")
         
         userDatabase.loginUser(email: email, password: password)
+        // Waits for the user to be logged in
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
             loginExpectation.fulfill()
             
             entryDatabase.getData(user: userDatabase.currentUser)
+            // Waits for the database to fetch the entry for further validation
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                 queryExpectation.fulfill()
                 
@@ -33,8 +35,6 @@ class EntryListViewControllerTests: XCTestCase {
                     entryDatabase: entryDatabase,
                     userDatabase: userDatabase
                 )
-                print("Accepted entries: \(entrylistViewController.sections[0])")
-                print("Open entries: \(entrylistViewController.sections[1])")
             }
         }
         

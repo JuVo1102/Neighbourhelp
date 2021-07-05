@@ -21,6 +21,7 @@ class userDatabaseTests: XCTestCase {
         let expectation = self.expectation(description: "waiting for database")
         
         userDatabase.loginUser(email: user.email, password: user.password)
+        // Waits for the user to be logged in
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
             expectation.fulfill()
         }
@@ -40,11 +41,13 @@ class userDatabaseTests: XCTestCase {
         let loginExpectation = self.expectation(description: "waiting for database")
         
         userDatabase.AddUser(email: user.email, password: user.password)
+        // Waits for the database to add a new user
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
             addingExpectation.fulfill()
         }
         
         userDatabase.loginUser(email: user.email, password: user.password)
+        // Waits for the user to be logged in
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
             loginExpectation.fulfill()
         }
@@ -61,10 +64,12 @@ class userDatabaseTests: XCTestCase {
         let loginExpectation = self.expectation(description: "waiting for login")
         
         userDatabase.loginUser(email: user.email, password: user.password)
+        // Waits for the user to be logged in
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
             loginExpectation.fulfill()
             
             userDatabase.logout()
+            // Waits for the user to be logged out
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
                 logoutExpectation.fulfill()
             }

@@ -12,7 +12,8 @@ import XCTest
 
 class LoginViewControllerTests: XCTestCase {
     
-    func testLoginViewController() {
+    // Will fail if the user is not registered in the database
+    func testLoginViewControllerLogin() {
         let userDatabase = UserDatabase()
         let entryDatabase = EntryDatabase()
         let contentViewController = ContentViewController()
@@ -25,6 +26,7 @@ class LoginViewControllerTests: XCTestCase {
             userDatabase: userDatabase,
             entryDatabase: entryDatabase,
             contentViewController: contentViewController)
+        // Waits for the login to be completed
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
             print(userDatabase.currentUser)
             loginExpectation.fulfill()

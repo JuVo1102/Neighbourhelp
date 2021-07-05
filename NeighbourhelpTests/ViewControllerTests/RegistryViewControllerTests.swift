@@ -12,6 +12,8 @@ import XCTest
 
 class RegistryViewControllerTests: XCTestCase {
     
+    // Will fail if the user is already registered
+    // Workaround: alter the variables or delete the user in the database
     func testRegister() {
         let userDatabase = UserDatabase()
         let entryDatabase = EntryDatabase()
@@ -27,6 +29,7 @@ class RegistryViewControllerTests: XCTestCase {
             entryDatabase: entryDatabase,
             contentViewController: contentViewController)
         
+        // Waits for the registration to be completed
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(3)) {
             print("current User: \(userDatabase.currentUser)")
             registryExpectation.fulfill()

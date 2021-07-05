@@ -28,6 +28,7 @@ class CreateEntryViewControllerTests: XCTestCase {
         let deleteExpectation = self.expectation(description: "waiting for deletion")
         
         userDatabase.loginUser(email: email, password: password)
+        // Waits for the user to be logged in
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
             loginExpectation.fulfill()
             
@@ -35,11 +36,13 @@ class CreateEntryViewControllerTests: XCTestCase {
                 entryDatabase: entryDatabase,
                 userDatabase: userDatabase,
                 contentViewController: contentviewController)
+            // Waits for the database to add the entry
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
                 addingExpectation.fulfill()
             }
             
             entryDatabase.getData(user: userDatabase.currentUser)
+            // Waits for the database to fetch the entry for further validation
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                 if entryDatabase.entriesForUser.contains(where: {
                     $0.entryTitle == "unitTest"
@@ -54,6 +57,7 @@ class CreateEntryViewControllerTests: XCTestCase {
                     if entry.entryTitle == "unitTest" {
                         entryDatabase.deleteEntry(entry: entry)
                         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+                            // Deletes the entry to keep the database clean
                             deleteExpectation.fulfill()
                         }
                     }
