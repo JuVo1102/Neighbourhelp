@@ -25,7 +25,7 @@ struct EntryListView: View {
                     )
                     {
                         ForEach(section.entries) {
-                            SubtitleRow(text: $0.entryTitle, detailText: $0.createdByUser, entry: $0)
+                            SubtitleRow(text: $0.entryTitle, detailText: $0.createdByUser, entry: $0, listEntryId: $0.id)
                         }
                     }
                 }

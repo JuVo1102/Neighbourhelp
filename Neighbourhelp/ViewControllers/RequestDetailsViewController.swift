@@ -11,15 +11,21 @@ class RequestDetailsViewController: ObservableObject {
     @Published var disabled : Bool = true
     @Published var buttonText : String = ""
     @Published var opacity: Double = 0.0
+    @Published var isActive: Bool = false
     
-    func process(entry: Entry, entryDatabase: EntryDatabase, userDatabase: UserDatabase) {
+    func process(entry: Entry, entryDatabase: EntryDatabase, userDatabase: UserDatabase, selection: inout UUID?) {
+        print(selection!)
         if validateInputs(entry: entry, userDatabase: userDatabase) {
             var newEntry = entry
             newEntry.acceptedByUser = userDatabase.currentUser.email
             entryDatabase.changeEntry(entry: newEntry)
+            isActive = false
+            selection = nil
         }
         else {
             entryDatabase.deleteEntry(entry: entry)
+            isActive = false
+            selection = nil
         }
     }
     

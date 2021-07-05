@@ -14,6 +14,7 @@ struct RequestDetailsView: View {
     @EnvironmentObject var userDataBase: UserDatabase
     @EnvironmentObject var entryDatabase: EntryDatabase    
     @State var entry: Entry
+    @Binding var selection: UUID?
     
     var body: some View {
         NavigationView{
@@ -29,7 +30,8 @@ struct RequestDetailsView: View {
                 Button(action: {requestDetailsViewController.process(
                         entry: entry,
                         entryDatabase: entryDatabase,
-                        userDatabase: userDataBase)}) {
+                        userDatabase: userDataBase,
+                        selection: &selection)}) {
                     Text(requestDetailsViewController.buttonText)
                 }
                 .font(.headline)
@@ -70,7 +72,8 @@ struct RequestDetailsView_Previews: PreviewProvider {
                 entryTitle: "Title",
                 entryDescription: "Description",
                 createdByUser: "UserXY",
-                acceptedByUser: "UserZ")
+                acceptedByUser: "UserZ"),
+            selection: .constant(UUID())
         )
         .environmentObject(EntryListViewController())
         .environmentObject(ContentViewController())
