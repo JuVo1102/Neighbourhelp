@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 /* Quelle: https://www.hackingwithswift.com/forums/swiftui/textfield-dismiss-keyboard-clear-button/240 */
+// Extension to dismiss keyboard after buttonclick
 extension UIApplication {
     func endEditing() {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)

@@ -15,10 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
         // Quelle: https://www.hackingwithswift.com/articles/216/complete-guide-to-navigationview-in-swiftui vom 02.07.2021
+        
+        // Configuration for some styling
         let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.configureWithOpaqueBackground()
-        navBarAppearance.backgroundColor = .systemPurple
+        navBarAppearance.backgroundColor = .systemTeal
+        
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.black], for: .normal)
+        UITabBar.appearance().barTintColor = .systemTeal
         
         UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
         

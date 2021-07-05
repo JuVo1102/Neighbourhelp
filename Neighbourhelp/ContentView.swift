@@ -17,9 +17,11 @@ struct ContentView: View {
     @EnvironmentObject var entryDataBase: EntryDatabase
     @EnvironmentObject var userDataBase: UserDatabase
     
+    
     var body: some View {
         // Quelle für Navigation: https://developer.apple.com/forums/thread/667742
         VStack {
+            //Navigation between MainViews
             if viewController.loginView {
                 LoginView()
             }

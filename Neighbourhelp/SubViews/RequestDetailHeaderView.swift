@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// Custom Header for the detailView of the entries to show which user accepted the specific entry
+
 struct RequestDetailHeaderView: View {
     @State var title: String
     @State var acceptedByUser: String

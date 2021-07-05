@@ -41,13 +41,13 @@ struct CreateEntryView: View {
                     .font(.callout)
                     .bold()
                 
-                TextField("Enter description...", text: $createEntryController.description)
+                TextEditor(text: $createEntryController.description)
                     .multilineTextAlignment(
-                        .center)
+                        .leading)
                     .font(.headline)
                     .foregroundColor(.black)
                     .padding()
-                    .frame(width: 300, height: 50)
+                    .frame(width: 300, height: 200)
                     .background(Color(hue: 1.0, saturation: 0.028, brightness: 0.864))
                     .cornerRadius(20)
                 
