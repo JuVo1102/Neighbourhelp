@@ -21,10 +21,6 @@ struct HomePageView: View {
                 .tabItem {
                     Label("Create entry", image: "")
                 }
-            ChatView().tag(2)
-                .tabItem {
-                    Label("Chat", image: "")
-                }
         }
     }
 }

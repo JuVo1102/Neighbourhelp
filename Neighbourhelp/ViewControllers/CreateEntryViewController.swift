@@ -17,13 +17,12 @@ class CreateEntryViewController: ObservableObject {
         if checkInputs() {
             let entry = Entry(entryTitle: title, entryDescription: description, createdByUser: userDatabase.currentUser.email, acceptedByUser: "")
             entryDatabase.addEntry(entry: entry)
+            UIApplication.shared.endEditing()
+            self.clearInputs()
+            self.warning = "Request successfully created!"
+            entryDatabase.getData(user: userDatabase.currentUser)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
-                UIApplication.shared.endEditing()
-                self.clearInputs()
-                self.warning = "Request successfully created!"
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
-                    self.warning = ""
-                }
+                self.warning = ""
             }
         }
         else {

@@ -17,8 +17,9 @@ Pages:
         List of Entries
             Detailview of Entries
         Entry-Creationpage
-        Chat (work in progress)
-        
+Possible additions in the future:
+    Chatpage
+    Localization of users to restrict shown entries with a certain distance radius
 Authentication provided by Firebase
 Database provided by  Firebase
 

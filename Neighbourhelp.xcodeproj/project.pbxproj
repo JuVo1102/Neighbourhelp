@@ -22,7 +22,6 @@
 		CA903E6F268F8C1700A85A73 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E6E268F8C1700A85A73 /* HomePageView.swift */; };
 		CA903E74268F8DD800A85A73 /* EntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E73268F8DD800A85A73 /* EntryListView.swift */; };
 		CA903E79268F8E8000A85A73 /* CreateEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E78268F8E8000A85A73 /* CreateEntryView.swift */; };
-		CA903E7E268F8E8A00A85A73 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E7D268F8E8A00A85A73 /* ChatView.swift */; };
 		CA903E83268F8FD700A85A73 /* CreateEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E82268F8FD700A85A73 /* CreateEntryViewController.swift */; };
 		CA903E88268F94F300A85A73 /* EntryDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903E87268F94F300A85A73 /* EntryDatabase.swift */; };
 		CA903EA3268F98E300A85A73 /* EntryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA903EA2268F98E300A85A73 /* EntryModel.swift */; };
@@ -90,7 +89,6 @@
 		CA903E6E268F8C1700A85A73 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		CA903E73268F8DD800A85A73 /* EntryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListView.swift; sourceTree = "<group>"; };
 		CA903E78268F8E8000A85A73 /* CreateEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEntryView.swift; sourceTree = "<group>"; };
-		CA903E7D268F8E8A00A85A73 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		CA903E82268F8FD700A85A73 /* CreateEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEntryViewController.swift; sourceTree = "<group>"; };
 		CA903E87268F94F300A85A73 /* EntryDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDatabase.swift; sourceTree = "<group>"; };
 		CA903EA2268F98E300A85A73 /* EntryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryModel.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 				CA903E6E268F8C1700A85A73 /* HomePageView.swift */,
 				CA903E73268F8DD800A85A73 /* EntryListView.swift */,
 				CA903E78268F8E8000A85A73 /* CreateEntryView.swift */,
-				CA903E7D268F8E8A00A85A73 /* ChatView.swift */,
 				CA4910532690CAA60097D5CD /* RequestDetailsView.swift */,
 			);
 			path = PageViews;
@@ -581,7 +578,6 @@
 				CAE9EE54268E5BA600D3447E /* LoginViewController.swift in Sources */,
 				CAE9EE45268E579C00D3447E /* ContentViewController.swift in Sources */,
 				CA903E83268F8FD700A85A73 /* CreateEntryViewController.swift in Sources */,
-				CA903E7E268F8E8A00A85A73 /* ChatView.swift in Sources */,
 				CA49104F2690BDF10097D5CD /* SectionViewModel.swift in Sources */,
 				CA4910592690D17C0097D5CD /* RequestDetailsViewController.swift in Sources */,
 				CA4910692691009B0097D5CD /* CustomRegistryTextFieldView.swift in Sources */,
