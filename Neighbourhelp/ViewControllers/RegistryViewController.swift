@@ -22,12 +22,16 @@ class RegistryViewController: ObservableObject {
         if validateCredentials() {
             if validatePassword(){
                 if validateEmail() {
+                    // Adds a user to the dataBase
                     userdataBase.AddUser(email: email, password: password)
                     warning = "waiting for Registration"
+                    // Waits 2 seconds for useraddition to the dataBase
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                         self.warning = ""
+                        // Fetches the entries from the database for visualization
                         entryDatabase.getData(user: userdataBase.currentUser)
-                        contentViewController.registryView.toggle()
+                        // Navigates to the homePageView by toggling booleans of the contentViewController
+                        contentViewController.registryView.toggle()s
                         contentViewController.homePageView.toggle()
                     }  
                     self.resetInputs()
@@ -45,6 +49,7 @@ class RegistryViewController: ObservableObject {
         }        
     }
     
+    // Validates the Email against a given regex
     func validateEmail() -> Bool {
         let range = NSRange(location: 0, length: email.utf16.count)
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Z0-9a-z._%+-]+\\.[A-Za-z]{2,64}"
@@ -57,6 +62,7 @@ class RegistryViewController: ObservableObject {
         }
     }
     
+    // Checks if the needed credentials are given
     func validateCredentials() -> Bool {
         if email != "" && password != "" && confirmPassword != "" {
             return true
@@ -66,6 +72,7 @@ class RegistryViewController: ObservableObject {
         }
     }
     
+    // Validates if the password matches the minimum length for the firebase database
     func validatePassword() -> Bool {
         if(password.count > 6) {
             if password == confirmPassword  {
@@ -75,12 +82,14 @@ class RegistryViewController: ObservableObject {
         return false
     }
     
+    // Resets the inputs in case the user gets to the registryView later
     func resetInputs() {
         email = ""
         password = ""
         confirmPassword = ""
     }
     
+    // navigates to the loginView by toggling the booleans of the contentViewController
     func back(contentViewController: ContentViewController) {
         contentViewController.registryView.toggle()
         contentViewController.loginView.toggle()
