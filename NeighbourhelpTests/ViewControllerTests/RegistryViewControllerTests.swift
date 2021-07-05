@@ -36,6 +36,15 @@ class RegistryViewControllerTests: XCTestCase {
         XCTAssert(userDatabase.currentUser.email == "unitTest@unitTest.de", "Failed to register user")
     }
     
+    func testValidateCredentials() {
+        let registryViewController = RegistryViewController()
+        registryViewController.email = "unitTest@unitTest.de"
+        registryViewController.password = "testPassword"
+        registryViewController.confirmPassword = "testPassword"
+        
+        XCTAssert(registryViewController.validateCredentials(), "Credentials not valid")
+    }
+    
     func testValidateEmail() {
         let registryViewController = RegistryViewController()
         registryViewController.email = "unitTest@unitTest.de"

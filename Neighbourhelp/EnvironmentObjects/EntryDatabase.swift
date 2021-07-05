@@ -9,10 +9,16 @@ import Foundation
 import FirebaseDatabase
 
 // Quelle: https://firebase.google.com/docs/database/ios/read-and-write am 02.07.2021
+
+// Firebase-realtime-database to store data. In this case requests
+
 class EntryDatabase: ObservableObject {
+    // Gets a reference of the database
     @Published var database: DatabaseReference! = Database.database().reference()
+    // Local array to store data from the database locally and used for synchronization with the frontend
     @Published var entriesForUser: [Entry] = []
     
+    // Adds a entry into the database at the defined path
     func addEntry(entry: Entry){
         print("addEntry was called")
         let object: [String: String] = [
@@ -24,6 +30,7 @@ class EntryDatabase: ObservableObject {
         self.database.child("Entries").child(entry.id.uuidString).setValue(object)
     }
     
+    // Changes a entry into the database at the defined path
     func changeEntry(entry: Entry) {
         print("changeEntry was called")
         let object: [String: String] = [
@@ -36,6 +43,7 @@ class EntryDatabase: ObservableObject {
         
     }
     
+    // Deletes an entry from the database at the defined path
     func deleteEntry(entry: Entry) {
         // Quelle: https://www.codegrepper.com/code-examples/swift/remove+child+from+firebase+swift
         self.database.child("Entries").child(entry.id.uuidString).removeValue {

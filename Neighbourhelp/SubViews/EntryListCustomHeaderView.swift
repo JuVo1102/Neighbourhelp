@@ -8,6 +8,7 @@
 import SwiftUI
 
 // Quelle: https://stackoverflow.com/questions/56867334/remove-change-section-header-background-color-in-swiftui-list
+// Custom Listheaders to manipulate the background-color of the header
 struct EntryListCustomHeaderView: View {
     @State var sectionName: String
     @State var color: Color

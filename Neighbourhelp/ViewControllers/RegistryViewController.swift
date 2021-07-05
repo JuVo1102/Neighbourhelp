@@ -10,14 +10,16 @@ import SwiftUI
 
 // Quelle: https://www.hackingwithswift.com/articles/108/how-to-use-regular-expression-in-swift
 
+// RegistryViewController to handle the logic for the registryView
 class RegistryViewController: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
     @Published var warning: String = ""
     
+    // Registers a new user to the userDatabase by calling the addUser function of the userDatabase
     func register(userdataBase: UserDatabase, entryDatabase: EntryDatabase, contentViewController: ContentViewController) {
-        if email != "" && password != "" && confirmPassword != "" {
+        if validateCredentials() {
             if validatePassword(){
                 if validateEmail() {
                     userdataBase.AddUser(email: email, password: password)
@@ -48,6 +50,15 @@ class RegistryViewController: ObservableObject {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Z0-9a-z._%+-]+\\.[A-Za-z]{2,64}"
         let regex = try! NSRegularExpression(pattern: emailRegEx)
         if regex.firstMatch(in: email, options: [], range: range) != nil {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func validateCredentials() -> Bool {
+        if email != "" && password != "" && confirmPassword != "" {
             return true
         }
         else {
