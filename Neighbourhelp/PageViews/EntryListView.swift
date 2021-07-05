@@ -37,11 +37,16 @@ struct EntryListView: View {
             .navigationBarTitle("Request-overview")
             .navigationBarItems(
                 trailing:
-                    Button("Logout: \(userDatabase.currentUser.email)") {
-                        userDatabase.logout()
-                        contentViewController.navigateToLogin()
-                    })
-        }        
+                    HStack{
+                        Text("Logout: ")
+                            .foregroundColor(.black)
+                        Button("\(userDatabase.currentUser.email)") {
+                            userDatabase.logout()
+                            contentViewController.navigateToLogin()
+                        }
+                    }
+            )
+        }
     }    
 }
 

@@ -75,10 +75,15 @@ struct CreateEntryView: View {
             .navigationBarTitle("Create Request")
             .navigationBarItems(
                 trailing:
-                    Button("Logout: \(userDatabase.currentUser.email)") {
-                        userDatabase.logout()
-                        contentViewController.navigateToLogin()
-                    })
+                    HStack{
+                        Text("Logout: ")
+                            .foregroundColor(.black)
+                        Button("\(userDatabase.currentUser.email)") {
+                            userDatabase.logout()
+                            contentViewController.navigateToLogin()
+                        }
+                    }
+            )
         }
     }
 }
