@@ -57,6 +57,9 @@ struct RequestDetailsView: View {
         .onAppear {
             requestDetailsViewController.checkButton(entry: entry, userDataBase: userDataBase)
         }
+        .onDisappear {
+            entryDatabase.getData(user: userDataBase.currentUser)
+        }
     }
 }
 

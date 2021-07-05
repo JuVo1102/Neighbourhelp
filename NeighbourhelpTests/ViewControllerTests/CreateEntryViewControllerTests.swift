@@ -21,14 +21,14 @@ class CreateEntryViewControllerTests: XCTestCase {
         createEntryViewController.description = "unitTest"
         let email = "test@test.de"
         let password = "password"
+        var successfull = false
         let loginExpectation = self.expectation(description: "waiting for login")
         let queryExpectation = self.expectation(description: "waiting for data query")
         let addingExpectation = self.expectation(description: "waiting for entry addition")
+        let deleteExpectation = self.expectation(description: "waiting for deletion")
         
         userDatabase.loginUser(email: email, password: password)
-        
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
-            print("current user \(userDatabase.currentUser)")
             loginExpectation.fulfill()
             
             createEntryViewController.addEntryToDatabase(
@@ -40,13 +40,31 @@ class CreateEntryViewControllerTests: XCTestCase {
             }
             
             entryDatabase.getData(user: userDatabase.currentUser)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
+                if entryDatabase.entriesForUser.contains(where: {
+                    $0.entryTitle == "unitTest"
+                }) {
+                    successfull = true
+                }
+                else {
+                    successfull = false
+                    
+                }
+                for entry in entryDatabase.entriesForUser {
+                    if entry.entryTitle == "unitTest" {
+                        entryDatabase.deleteEntry(entry: entry)
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+                            deleteExpectation.fulfill()
+                        }
+                    }
+                }
+                
                 queryExpectation.fulfill()
             }
         }
         
-        waitForExpectations(timeout: 6, handler: nil)
-        XCTAssert(entryDatabase.entriesForUser.contains(where: { $0.entryTitle == "unitTest"}), "Failed to add Entry")
+        waitForExpectations(timeout: 7, handler: nil)
+        XCTAssert(successfull, "Failed to add Entry")
     }
     
     func testCheckInputs() {

@@ -99,33 +99,32 @@ class entryDatabaseTests: XCTestCase {
         let queryExpectation = expectation(description: "waiting for entry-query")
         
         entryDatabase.getData(user: user)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
             for entry in entryDatabase.entriesForUser {
-                if entry.entryTitle == "changed Entryt" {
+                if entry.entryTitle == "changed Entry" {
                     databaseEntry = entry
                 }
             }
-            print("entry: \(databaseEntry)")
             entryDatabase.deleteEntry(entry: databaseEntry)
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                 
                 entryDatabase.getData(user: user)
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(2)) {
                     
-                    for entry in entryDatabase.entriesForUser {
-                        if entry.entryTitle == "changed Entry" {
-                            successfull = false
-                        }
-                        else {
-                            successfull = true
-                        }
+                    if entryDatabase.entriesForUser.contains(where: {
+                        $0.entryTitle == "changed Entry"
+                    }) {
+                        successfull = false
+                    }
+                    else {
+                        successfull = true
                     }
                     deleteExpectation.fulfill()
                     queryExpectation.fulfill()
                 }
             }
         }
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 7, handler: nil)
         
         XCTAssert(successfull, "Failed to delete Entry")
     }
