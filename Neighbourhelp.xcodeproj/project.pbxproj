@@ -44,7 +44,6 @@
 		CAE9EE08268E50B900D3447E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAE9EE07268E50B900D3447E /* Assets.xcassets */; };
 		CAE9EE0B268E50B900D3447E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAE9EE0A268E50B900D3447E /* Preview Assets.xcassets */; };
 		CAE9EE0E268E50B900D3447E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAE9EE0C268E50B900D3447E /* LaunchScreen.storyboard */; };
-		CAE9EE19268E50B900D3447E /* NeighbourhelpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9EE18268E50B900D3447E /* NeighbourhelpTests.swift */; };
 		CAE9EE24268E50B900D3447E /* NeighbourhelpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9EE23268E50B900D3447E /* NeighbourhelpUITests.swift */; };
 		CAE9EE45268E579C00D3447E /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9EE44268E579C00D3447E /* ContentViewController.swift */; };
 		CAE9EE4A268E587500D3447E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE9EE49268E587500D3447E /* LoginView.swift */; };
@@ -112,7 +111,6 @@
 		CAE9EE0D268E50B900D3447E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAE9EE0F268E50B900D3447E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAE9EE14268E50B900D3447E /* NeighbourhelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeighbourhelpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CAE9EE18268E50B900D3447E /* NeighbourhelpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeighbourhelpTests.swift; sourceTree = "<group>"; };
 		CAE9EE1A268E50B900D3447E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAE9EE1F268E50B900D3447E /* NeighbourhelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeighbourhelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE9EE23268E50B900D3447E /* NeighbourhelpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeighbourhelpUITests.swift; sourceTree = "<group>"; };
@@ -291,7 +289,6 @@
 			children = (
 				CA98F1E62692246100246395 /* ViewControllerTests */,
 				CA98F1E52692244A00246395 /* DatabaseTests */,
-				CAE9EE18268E50B900D3447E /* NeighbourhelpTests.swift */,
 				CAE9EE1A268E50B900D3447E /* Info.plist */,
 			);
 			path = NeighbourhelpTests;
@@ -611,7 +608,6 @@
 				CA98F1FF269246C900246395 /* RequestDetailsViewControllerTests.swift in Sources */,
 				CA98F12C2691F90600246395 /* userDatabaseTests.swift in Sources */,
 				CA98F1F5269238C200246395 /* CreateEntryViewControllerTests.swift in Sources */,
-				CAE9EE19268E50B900D3447E /* NeighbourhelpTests.swift in Sources */,
 				CA98F1CA2691FFBB00246395 /* entryDatabaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
